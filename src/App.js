@@ -1,48 +1,30 @@
 import React, { Component } from 'react';
+import { Pagination, Layout } from 'antd';
+
 import axios from './axios';
-import dayjs from 'dayjs';
-import LazyLoad from 'react-lazyload';
+import BingImage from './components/BingImage';
+import './style/App.scss';
 
-import {
-  Layout,
-  Pagination,
-  Rate,
-  Carousel,
-  Card,
-  Skeleton,
-  Switch,
-  Icon,
-  Avatar
-} from 'antd';
-import NProgress from 'nprogress';
-import './App.scss';
-import './style/banner.scss';
-
-NProgress.configure({ easing: 'ease', speed: 500 });
-
-const { Header, Footer, Content } = Layout;
-const { Meta } = Card;
+const { Header } = Layout;
 
 class App extends Component {
   state = {
     docs: [],
     page: 1,
-    total: 0
+    total: null,
+    limit: 16
   };
-  componentWillMount() {
-    NProgress.start();
-  }
+  componentWillMount() {}
 
   componentDidMount() {
     this.handleSearchData();
   }
 
   handleSearchData() {
-    const { page } = this.state;
-    axios(`http://localhost:3000/v1/bing/images/page/${page}`).then(
+    const { page, limit } = this.state;
+    axios(`http://localhost:3000/v1/bing/images/${page}/${limit}`).then(
       ({ docs, total }) => {
         this.setState({ docs, total });
-        NProgress.done();
       }
     );
   }
@@ -54,46 +36,25 @@ class App extends Component {
   };
 
   render() {
-    const { docs, total, page } = this.state;
-    // const banner = list.slice(0, 4)
+    const { docs, total, page, limit } = this.state;
     return (
       <div className="App">
         <Header />
-        {/* <Carousel>
-          {banner.map((image, i) => {
-            return <img src={image.url} key={i} />
-          })}
-        </Carousel> */}
-        {/* <Rate /> */}
-        <div
-          style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '30px' }}
-        >
-          {docs.map(({ copyright, date, url }, i) => {
-            const formatDate = date ? dayjs(date).format('YYYY-MM-DD') : '';
-            return (
-              <Card
-                key={i}
-                hoverable
-                style={{ width: '25%' }}
-                cover={
-                  <LazyLoad height={200} offset={100}>
-                    <img alt={copyright} src={url} />
-                  </LazyLoad>
-                }
-              >
-                <Meta title={formatDate} description={copyright} />
-              </Card>
-            );
+        <div className="content">
+          {docs.map(image => {
+            return <BingImage {...image} key={image._id} />;
           })}
         </div>
-        <div style={{ marginBottom: '30px' }}>
-          <Pagination
-            showQuickJumper
-            defaultCurrent={page}
-            total={total}
-            pageSize={12}
-            onChange={this.onChange}
-          />
+        <div className="pagination">
+          {total && (
+            <Pagination
+              showQuickJumper
+              defaultCurrent={page}
+              total={total}
+              pageSize={limit}
+              onChange={this.onChange}
+            />
+          )}
         </div>
       </div>
     );

@@ -2,6 +2,10 @@
 
 :fire: Bing Image Collect
 
+[React 动态渲染图片，提升用户体验](https://zhuanlan.zhihu.com/p/25915941)
+
+[Gatsby 插件](https://www.gatsbyjs.org/packages/gatsby-plugin-react-helmet/?=)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
