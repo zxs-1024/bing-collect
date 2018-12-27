@@ -3,6 +3,7 @@ import { Pagination, Layout } from 'antd';
 
 import axios from './axios';
 import BingImage from './components/BingImage';
+import Loading from './components/Loading';
 import './style/App.scss';
 
 const { Header } = Layout;
@@ -39,7 +40,9 @@ class App extends Component {
     const { docs, total, page, limit } = this.state;
     return (
       <div className="App">
-        <Header />
+        <Header>
+          <Loading type="lds-pacman" />
+        </Header>
         <div className="content">
           {docs.map(image => {
             return <BingImage {...image} key={image._id} />;
