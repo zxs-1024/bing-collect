@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
-import App from './App';
-import Detail from './components/Detail';
+import routes from './config/routers';
+import RouteWithSubRoutes from './config/RouteWithSubRoutes';
 import * as serviceWorker from './serviceWorker';
 
 import 'antd/dist/antd.css';
@@ -12,8 +12,9 @@ import './style/index.scss';
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={App} />
-      <Route exact path="/detail/:id" component={Detail} />
+      {routes.map((route, i) => (
+        <RouteWithSubRoutes key={i} {...route} />
+      ))}
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')

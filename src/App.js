@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Pagination, Layout } from 'antd';
+import { Pagination } from 'antd';
 
 import axios from './axios';
 import BingImage from './components/BingImage';
 import './style/App.scss';
-
-const { Header } = Layout;
 
 class App extends Component {
   state = {
@@ -22,11 +20,9 @@ class App extends Component {
 
   handleSearchData() {
     const { page, limit } = this.state;
-    axios(`http://localhost:3000/v1/bing/images/${page}/${limit}`).then(
-      ({ docs, total }) => {
-        this.setState({ docs, total });
-      }
-    );
+    axios(`v1/bing/images/${page}/${limit}`).then(({ docs, total }) => {
+      this.setState({ docs, total });
+    });
   }
 
   onChange = page => {
@@ -39,7 +35,6 @@ class App extends Component {
     const { docs, total, page, limit } = this.state;
     return (
       <div className="App">
-        <Header />
         <div className="content">
           {docs.map(image => {
             return <BingImage {...image} key={image._id} />;
