@@ -1,14 +1,16 @@
 .image__item {
   position: relative;
   display: flex;
-  padding: 20px;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   width: 100%;
+  height: calc(100vw * 1080 / 1920);
   // background: rgba(97, 218, 251, 0.14);
   .image {
+    position: absolute;
     width: 100%;
+    height: 100%;
   }
   .hover {
     position: absolute;
@@ -16,7 +18,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    // color: #fff;
+    color: #fff;
   }
   .panel {
     position: absolute;
@@ -50,17 +52,20 @@
 @media (min-width: 480px) {
   .image__item {
     width: 50%;
+    height: calc(50vw * 1080 / 1920);
   }
 }
 
 @media (min-width: 960px) {
   .image__item {
     width: 33.33%;
+    height: calc(33.33vw * 1080 / 1920);
   }
 }
 
 @media (min-width: 1280px) {
   .image__item {
     width: 25%;
+    height: calc(25vw * 1080 / 1920);
   }
 }

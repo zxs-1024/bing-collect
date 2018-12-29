@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Pagination } from 'antd';
+import dayjs from 'dayjs';
 
 import axios from './axios';
 import BingImage from './components/BingImage';
@@ -33,12 +34,17 @@ class App extends Component {
 
   render() {
     const { docs, total, page, limit } = this.state;
+    const date = (docs[0] && docs[0].date) || Date.now();
+
     return (
-      <div className="App">
-        <div className="content">
-          {docs.map(image => {
-            return <BingImage {...image} key={image._id} />;
-          })}
+      <main className="main">
+        <div className="container">
+          <h1>{dayjs(date).format('YYYY-MM')}</h1>
+          <div className="pictures">
+            {docs.map(image => {
+              return <BingImage {...image} key={image._id} />;
+            })}
+          </div>
         </div>
         <div className="pagination">
           {total && (
@@ -51,7 +57,7 @@ class App extends Component {
             />
           )}
         </div>
-      </div>
+      </main>
     );
   }
 }

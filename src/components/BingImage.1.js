@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
-import { Button, Icon, Card } from 'antd';
+import { Button, Icon } from 'antd';
 
 import Loading from './Loading';
 import '../style/image.scss';
 import { downloadFile } from '../utils';
-
-const { Meta } = Card;
 
 class BingImage extends Component {
   constructor(props) {
@@ -36,7 +34,7 @@ class BingImage extends Component {
     copyright = copyright.replace(/\(Bing China\)/, '');
 
     return (
-      <div className="image__item">
+      <Link to={`detail/${_id}`} className="image__item">
         {url && (
           <img
             style={{ opacity: loading ? 0 : 1 }}
@@ -46,7 +44,27 @@ class BingImage extends Component {
             alt={copyright}
           />
         )}
-      </div>
+        {/* {!url && <h1 style={{ color: '#61dafb' }} />} */}
+        {loading && <Loading type="Ripple" />}
+        <div className="hover">
+          <p className="copyright">{copyright}</p>
+          <div className="panel">
+            <Button
+              className="margin"
+              size="small"
+              shape="circle"
+              icon="cloud-download"
+              onClick={this.handleDownloadPictures.bind(this, url)}
+            />
+          </div>
+          {url && (
+            <p className="date">
+              <Icon type="schedule" />
+              <span>{date}</span>
+            </p>
+          )}
+        </div>
+      </Link>
     );
   }
 }

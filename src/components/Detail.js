@@ -6,7 +6,7 @@ import '../style/detail.scss';
 class Detail extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: {} };
+    this.state = { data: { detail: {} } };
   }
 
   componentDidMount() {
@@ -26,12 +26,13 @@ class Detail extends Component {
 
   render() {
     const { data } = this.state;
-
+    const { detail = {} } = data;
     return (
       <div className="detail">
-        <img className="detail__image" src={data.url} alt="" />
-        <h1>LALLALALLALLAL</h1>
-        <div className="detail__content"> {JSON.stringify(data)} </div>
+        <div className="detail__content">{detail.describe1}</div>
+        <div>
+          <img className="detail__image" src={data.url} alt="" />
+        </div>
       </div>
     );
   }

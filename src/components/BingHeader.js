@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
+import { DatePicker } from 'antd';
 
 import '../style/header.scss';
 
-const { Header } = Layout;
+const { MonthPicker } = DatePicker;
 
 class BingHeader extends Component {
   render() {
     return (
-      <div className="bing__header">
-        <Header />
-      </div>
+      <header className="header">
+        <div className="container">
+          <MonthPicker onChange={this.onChange} placeholder="Select month" />
+        </div>
+      </header>
     );
   }
 }

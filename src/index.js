@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch } from 'react-router-dom';
 
-import routes from './config/routers';
+import routes from './config/router.config';
 import RouteWithSubRoutes from './config/RouteWithSubRoutes';
 import * as serviceWorker from './serviceWorker';
 
