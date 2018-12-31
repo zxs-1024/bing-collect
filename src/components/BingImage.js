@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import dayjs from 'dayjs';
-import { Link } from 'react-router-dom';
-import { Button, Icon, Card } from 'antd';
+// import dayjs from 'dayjs'
+// import { Link } from 'react-router-dom';
+// import { Button, Icon, Card } from 'antd';
 
-import Loading from './Loading';
+// import Loading from './Loading'
 import '../style/image.scss';
 import { downloadFile } from '../utils';
 
-const { Meta } = Card;
+// const { Meta } = Card
 
 class BingImage extends Component {
   constructor(props) {
@@ -30,22 +30,34 @@ class BingImage extends Component {
 
   render() {
     const { loading } = this.state;
-    let { url, copyright = '', date, _id } = this.props;
+    let { url, copyright = '', i } = this.props;
 
-    date = date ? dayjs(date).format('YYYY-MM-DD') : '';
+    // date = date ? dayjs(date).format('YYYY-MM-DD') : ''
     copyright = copyright.replace(/\(Bing China\)/, '');
 
     return (
-      <div className="image__item">
-        {url && (
-          <img
-            style={{ opacity: loading ? 0 : 1 }}
-            className="image"
-            onLoad={this.onload}
-            src={url}
-            alt={copyright}
-          />
-        )}
+      <div className={`${i === 0 ? 'first' : ''} col-md-6 col-lg-4 item`}>
+        <article className="post tag-general tag-world">
+          <div className="post-inner-content">
+            <div className="img-holder">
+              <a
+                className="featured-image"
+                style={{ backgroundImage: `url(${url})` }}
+                href="#"
+              />
+            </div>
+
+            {/* {url && (
+              <img
+                style={{ opacity: loading ? 0 : 1 }}
+                className="image"
+                onLoad={this.onload}
+                src={url}
+                alt={copyright}
+              />
+            )} */}
+          </div>
+        </article>
       </div>
     );
   }

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
 
 import RouteWithSubRoutes from '../config/RouteWithSubRoutes';
-import BingHeader from './BingHeader';
+import Header from './Header';
+import '../style/layout.scss';
 
 class BasicLayout extends Component {
   render() {
     const { routes } = this.props;
     return (
-      <div className="layout">
-        <BingHeader />
-        <div className="layout__content">
+      <div className="main-container scroll">
+        <Header />
+        <div className="layout-container">
           {routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
           ))}

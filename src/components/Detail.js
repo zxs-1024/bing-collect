@@ -19,7 +19,7 @@ class Detail extends Component {
         params: { id }
       }
     } = this.props;
-    axios(`v1/bing/images/${id}`).then(data => {
+    axios(`api/v1/images/${id}`).then(data => {
       this.setState({ data });
     });
   };

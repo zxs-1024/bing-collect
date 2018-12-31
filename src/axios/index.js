@@ -7,7 +7,7 @@ NProgress.configure({ easing: 'ease', speed: 500 });
 
 // 创建实例时设置配置的默认值
 const instance = axios.create({
-  baseURL: 'http://localhost:3000/'
+  baseURL: 'https://zhanghao-zhoushan.cn/bing/'
 });
 
 instance.defaults.timeout = 2500;

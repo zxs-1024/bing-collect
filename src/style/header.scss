@@ -1,22 +1,22 @@
-.header {
-  display: flex;
-  align-items: center;
+header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 56px;
-  z-index: 9 !important;
+  z-index: 999;
+  height: 135px;
   background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 -1px 1px rgba(0, 0, 0, 0.05);
-}
-
-.main {
-  padding-top: 56px;
-}
-
-.container {
-  position: relative;
-  margin: 0 auto;
-  width: 1408px;
+  display: flex !important;
+  align-items: center;
+  border-bottom: 3px solid #ededed;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+  .blog-logo {
+    height: 100%;
+    display: flex;
+    a {
+      display: flex;
+      align-items: center;
+    }
+  }
 }

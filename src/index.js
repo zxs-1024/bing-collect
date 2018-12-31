@@ -7,6 +7,9 @@ import RouteWithSubRoutes from './config/RouteWithSubRoutes';
 import * as serviceWorker from './serviceWorker';
 
 import 'antd/dist/antd.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'nprogress/nprogress'; // importing a css file from the nprogress node module
+import 'normalize.css';
 import './style/index.scss';
 
 ReactDOM.render(
