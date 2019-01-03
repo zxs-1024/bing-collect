@@ -1,0 +1,9 @@
+.loop .item.first,
+.loop .item.first + .item {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+main {
+  display: block;
+}

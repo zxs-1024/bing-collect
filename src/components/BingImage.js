@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import dayjs from 'dayjs'
+import dayjs from 'dayjs';
 // import { Link } from 'react-router-dom';
 // import { Button, Icon, Card } from 'antd';
 
@@ -30,9 +30,9 @@ class BingImage extends Component {
 
   render() {
     const { loading } = this.state;
-    let { url, copyright = '', i } = this.props;
+    let { url, copyright = '', date = new Date(), i } = this.props;
 
-    // date = date ? dayjs(date).format('YYYY-MM-DD') : ''
+    date = dayjs(date).format('DD MMM YYYY');
     copyright = copyright.replace(/\(Bing China\)/, '');
 
     return (
@@ -47,15 +47,39 @@ class BingImage extends Component {
               />
             </div>
 
-            {/* {url && (
-              <img
-                style={{ opacity: loading ? 0 : 1 }}
-                className="image"
-                onLoad={this.onload}
-                src={url}
-                alt={copyright}
-              />
-            )} */}
+            <div className="inner">
+              <h2 className="post-title">
+                <a href="/influence-of-social-media-on-self-esteem/">
+                  {copyright}
+                </a>
+              </h2>
+              <div className="post-meta">
+                <time>{date}</time>
+                <div className="tags">
+                  <a href="#">Bing</a>
+                </div>
+              </div>
+              <a
+                href="#"
+                className="read-later"
+                data-id="5b15af070e79df40e5b5d70f"
+              >
+                <i
+                  className="far fa-bookmark"
+                  data-toggle="tooltip"
+                  data-placement="right"
+                  title=""
+                  data-original-title="Bookmark article"
+                />
+                <i
+                  className="fas fa-bookmark"
+                  data-toggle="tooltip"
+                  data-placement="right"
+                  title=""
+                  data-original-title="Remove bookmark"
+                />
+              </a>
+            </div>
           </div>
         </article>
       </div>

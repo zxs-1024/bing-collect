@@ -1,0 +1,46 @@
+.main-container {
+  margin-top: 165px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.scroll header {
+  height: 60px;
+  border-bottom: 1px solid #ededed;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  .col-lg-4 {
+    flex: 0 0 33.333333%;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+  .col-md-6 {
+    flex: 0 0 50%;
+  }
+}
