@@ -8,7 +8,7 @@ header {
   background: #fff;
   display: flex !important;
   align-items: center;
-  border-bottom: 3px solid #ededed;
+  border-bottom: 1px solid #ededed;
   transform: translateY(0);
   transition: all 0.3s ease-in-out;
   .blog-logo {
@@ -17,6 +17,10 @@ header {
     a {
       display: flex;
       align-items: center;
+    }
+    img {
+      display: block;
+      height: 60px;
     }
   }
 }

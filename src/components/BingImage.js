@@ -33,9 +33,9 @@ class BingImage extends Component {
     let {
       url,
       copyright = '',
-      Continent,
-      Country,
-      City,
+      Continent = '',
+      Country = '',
+      City = '',
       date = new Date(),
       id,
       i
@@ -43,6 +43,7 @@ class BingImage extends Component {
 
     date = dayjs(date).format('DD MMM YYYY');
     copyright = copyright.replace(/\(Bing China\)/, '');
+    const [copyrightBefore, copyrightAfter] = copyright.split('(');
     const first = i === 0 ? 'first' : '';
 
     return (
@@ -58,11 +59,7 @@ class BingImage extends Component {
             </div>
 
             <div className="inner">
-              <h2 className="post-title">
-                <a href="/influence-of-social-media-on-self-esteem/">
-                  {copyright}
-                </a>
-              </h2>
+              <h2 className="post-title">{copyrightBefore}</h2>
               <div className="post-meta">
                 <time>{date}</time>
                 <div className="tags">{`${Continent} ${Country} ${City}`}</div>

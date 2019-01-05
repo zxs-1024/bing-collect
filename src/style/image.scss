@@ -21,8 +21,13 @@
     }
   }
   .inner {
-    padding: 10px 50px 10px 20px;
+    padding: 10px;
     position: relative;
+    .post-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
   h2 {
     font-size: 20px;
@@ -49,11 +54,13 @@ time {
   font-size: 14px;
 }
 
-time + .tags {
-  font-size: 14px;
-  padding-left: 10px;
-  position: relative;
-  border-bottom: 1px solid transparent;
+.post-meta {
+  .tags {
+    font-size: 14px;
+    padding-left: 10px;
+    position: relative;
+    border-bottom: 1px solid transparent;
+  }
 }
 
 .tags {

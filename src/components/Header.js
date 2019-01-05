@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { DatePicker } from 'antd'
 
 import '../style/header.scss';
+import logo from '../image/Bing-logo-2013.png';
 
 // const { MonthPicker } = DatePicker;
 
@@ -17,14 +18,11 @@ class BingHeader extends Component {
                   href="https://poveglia.hauntedthemes.com"
                   title="Poveglia - Multipurpose Ghost Theme by Haunted Themes"
                 >
-                  <img
-                    src="https://poveglia.hauntedthemes.com/content/images/2018/06/poveglia-premium-ghost-theme.svg"
-                    alt="Poveglia - Multipurpose Ghost Theme by Haunted Themes"
-                  />
+                  <img src={logo} alt="" />
                 </a>
               </div>
             </div>
-            <div className="col-9">lalala</div>
+            <div className="col-9" />
           </div>
         </div>
       </header>

@@ -83,12 +83,12 @@
 }
 
 .single-post .post-content {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   font-size: 18px;
   line-height: 2.5rem;
   blockquote {
-    border-left: 2px solid #19ddc4;
+    border-left: 2px solid #f5bb41;
     color: #999999;
     font-size: 1.7rem;
     line-height: 2.7rem;
@@ -108,12 +108,10 @@
 }
 
 .post-meta {
-  padding-left: 10px;
-  margin-top: -30px;
   font-size: 14px;
   text-align: right;
   .place {
     padding-left: 20px;
-    color: #999;
+    color: #3f3f3f;
   }
 }
