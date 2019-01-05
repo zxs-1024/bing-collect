@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import dayjs from 'dayjs';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { Button, Icon, Card } from 'antd';
 
 // import Loading from './Loading'
@@ -29,21 +29,31 @@ class BingImage extends Component {
   };
 
   render() {
-    const { loading } = this.state;
-    let { url, copyright = '', date = new Date(), i } = this.props;
+    // const { loading } = this.state
+    let {
+      url,
+      copyright = '',
+      Continent,
+      Country,
+      City,
+      date = new Date(),
+      id,
+      i
+    } = this.props;
 
     date = dayjs(date).format('DD MMM YYYY');
     copyright = copyright.replace(/\(Bing China\)/, '');
+    const first = i === 0 ? 'first' : '';
 
     return (
-      <div className={`${i === 0 ? 'first' : ''} col-md-6 col-lg-4 item`}>
+      <div className={`${first} col-md-6 col-lg-4 item`}>
         <article className="post tag-general tag-world">
           <div className="post-inner-content">
             <div className="img-holder">
-              <a
+              <Link
                 className="featured-image"
                 style={{ backgroundImage: `url(${url})` }}
-                href="#"
+                to={`/detail/${id}`}
               />
             </div>
 
@@ -55,9 +65,7 @@ class BingImage extends Component {
               </h2>
               <div className="post-meta">
                 <time>{date}</time>
-                <div className="tags">
-                  <a href="#">Bing</a>
-                </div>
+                <div className="tags">{`${Continent} ${Country} ${City}`}</div>
               </div>
               <a
                 href="#"

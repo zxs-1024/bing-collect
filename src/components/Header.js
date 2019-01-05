@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { DatePicker } from 'antd';
+// import { DatePicker } from 'antd'
 
 import '../style/header.scss';
 
-const { MonthPicker } = DatePicker;
+// const { MonthPicker } = DatePicker;
 
 class BingHeader extends Component {
   render() {

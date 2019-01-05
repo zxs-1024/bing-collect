@@ -1,0 +1,119 @@
+@media screen and (min-width: 767px) {
+  .main-content-area {
+    overflow: hidden;
+  }
+}
+
+.single-post {
+  padding-top: 0px;
+}
+
+.main-content-area {
+  // padding: 64px 0;
+  margin-top: -30px;
+}
+
+.single-post .post-head {
+  padding: 300px 0px;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.single-post .post-head:before {
+  content: '';
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.single-post .post-head .category {
+  position: relative;
+}
+
+.single-post .post-head .category:before {
+  left: -24px;
+}
+
+.single-post .post-head .category a {
+  text-transform: uppercase;
+}
+
+.single-post .post-head .category:after {
+  right: -24px;
+}
+
+.single-post .post-head .title {
+  color: #ffffff;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin: 32px 0px;
+}
+
+.single-post .post-head .post-meta {
+  text-transform: uppercase;
+}
+
+.single-post .post-head .post-meta .author {
+  margin-right: 12px;
+}
+
+.single-post .post-head .post-meta .time {
+  margin-left: 12px;
+  position: relative;
+}
+
+.single-post .post-head .post-meta .time:before {
+  content: '';
+  width: 1px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: -13px;
+  top: 50%;
+  margin-top: -6px;
+}
+
+.single-post .post-content {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 2.5rem;
+  blockquote {
+    border-left: 2px solid #19ddc4;
+    color: #999999;
+    font-size: 1.7rem;
+    line-height: 2.7rem;
+    font-weight: 300;
+    font-style: italic;
+    padding: 0px 20px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  img {
+    width: 100%;
+  }
+  p {
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+}
+
+.post-meta {
+  padding-left: 10px;
+  margin-top: -30px;
+  font-size: 14px;
+  text-align: right;
+  .place {
+    padding-left: 20px;
+    color: #999;
+  }
+}

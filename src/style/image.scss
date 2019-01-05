@@ -1,16 +1,33 @@
-.loop .post .post-inner-content {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.loop .post {
-  display: flex;
-  margin-bottom: 30px;
-  a {
-    color: #3f3f3f;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+.loop {
+  .post {
+    display: flex;
+    margin-bottom: 30px;
+    &:hover .img-holder .featured-image {
+      transform: scale(1.1, 1.1);
+    }
+    a {
+      color: #3f3f3f;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+    .img-holder {
+      overflow: hidden;
+      border-radius: 5px;
+    }
+    .post-inner-content {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+  .inner {
+    padding: 10px 50px 10px 20px;
+    position: relative;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 5px 0;
+    padding: 0;
   }
 }
 
@@ -24,28 +41,8 @@
   background-size: cover;
 }
 
-.loop .post:hover .img-holder .featured-image {
-  transform: scale(1.1, 1.1);
-}
-
-.post .img-holder {
-  overflow: hidden;
-  border-radius: 5px;
-}
-
 a:-webkit-any-link {
   cursor: pointer;
-}
-
-.loop .inner {
-  padding: 10px 50px 10px 20px;
-  position: relative;
-}
-
-.loop h2 {
-  font-size: 20px;
-  margin: 5px 0;
-  padding: 0;
 }
 
 time {
@@ -54,23 +51,11 @@ time {
 
 time + .tags {
   font-size: 14px;
-  padding-left: 20px;
+  padding-left: 10px;
   position: relative;
   border-bottom: 1px solid transparent;
 }
 
-time + .tags:before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  background: #3f3f3f;
-  border-radius: 5px;
-  display: inline-block;
-  margin-left: -15px;
-  position: absolute;
-  top: 50%;
-  margin-top: -2px;
-}
 .tags {
   list-style-type: none;
   margin: 0;

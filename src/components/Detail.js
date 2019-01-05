@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import axios from '../axios';
+import Stories from './Stories';
+
 import '../style/detail.scss';
 
 class Detail extends Component {
@@ -25,14 +27,25 @@ class Detail extends Component {
   };
 
   render() {
-    const { data } = this.state;
-    const { detail = {} } = data;
+    const {
+      data: { url, detail = {} }
+    } = this.state;
     return (
-      <div className="detail">
-        <div className="detail__content">{detail.describe1}</div>
-        <div>
-          <img className="detail__image" src={data.url} alt="" />
-        </div>
+      <div className="main-content-area single-post">
+        <article>
+          <div
+            className="post-head"
+            style={{ backgroundImage: `url(${url})` }}
+          />
+
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <Stories stories={detail} />
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     );
   }
