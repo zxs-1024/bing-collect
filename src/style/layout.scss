@@ -249,32 +249,14 @@
     font-size: 14px;
     line-height: 1.4;
   }
-  footer {
-    margin-top: 30px;
-  }
-  footer input[type='email'] {
-    padding: 10px 20px;
-    font-size: 14px;
-    margin: 0 10px 10px 0;
-  }
+
   .gh-signin button[type='submit'] {
     background: #ffffff;
     height: 40px;
     padding: 0 20px;
     font-size: 14px;
   }
-  footer .share a {
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
-    margin: 0;
-  }
-  footer .share li {
-    margin-right: 5px;
-  }
-  footer .share li:last-child {
-    margin-right: 0;
-  }
+
   .subscribe .main-container {
     padding: 50px 0;
   }
@@ -297,10 +279,7 @@
   .author .author-content .share li:first-child a {
     margin-left: 0;
   }
-  .share-post-footer {
-    margin-top: 20px;
-    justify-content: flex-start;
-  }
+
   .editor-content iframe[src*="https://www.youtube.com/"] {
     height: calc((100vw - 30px) / 1.77777778) !important;
   }

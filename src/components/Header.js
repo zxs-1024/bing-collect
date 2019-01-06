@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import '../style/header.scss';
 import logo from '../image/Bing-logo-2013.png';
 
-// const { MonthPicker } = DatePicker;
+// const { MonthPicker } = DatePicker
 
 class BingHeader extends Component {
   render() {
