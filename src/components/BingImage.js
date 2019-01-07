@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
-// import { Button, Icon, Card } from 'antd';
 
-// import Loading from './Loading'
-import '../style/image.scss';
 import { downloadFile } from '../utils';
-
-// const { Meta } = Card
+import '../style/image.scss';
 
 class BingImage extends Component {
   constructor(props) {
@@ -44,7 +40,7 @@ class BingImage extends Component {
     date = dayjs(date).format('DD MMM YYYY');
     copyright = copyright.replace(/\(Bing China\)/, '');
     const [copyrightBefore, copyrightAfter] = copyright.split('(');
-    const first = i === 0 ? 'first' : '';
+    const first = i % 8 === 0 ? 'first' : '';
 
     return (
       <div className={`${first} col-md-6 col-lg-4 item`}>

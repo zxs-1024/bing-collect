@@ -8,8 +8,8 @@ const icon = {
   Pacman: <Pacman />
 };
 
-function Loading({ type }) {
-  return <div>{icon[type]}</div>;
+function Loading({ type = 'DuaRing' }) {
+  return <div className="loading-content">{icon[type]}</div>;
 }
 
 function DuaRing({ type }) {
@@ -38,7 +38,7 @@ function Ellipsis({ type }) {
 
 function Pacman({ type }) {
   return (
-    <div style={{ width: '100%', height: '100%' }} className="lds-pacman">
+    <div className="lds-pacman">
       <div>
         <div />
         <div />
