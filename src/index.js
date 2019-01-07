@@ -15,8 +15,8 @@ import './style/index.scss';
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      {routes.map((route, i) => (
-        <RouteWithSubRoutes key={i} {...route} />
+      {routes.map(route => (
+        <RouteWithSubRoutes key={`${route.path}`} {...route} />
       ))}
     </Switch>
   </BrowserRouter>,

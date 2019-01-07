@@ -2,7 +2,6 @@ import React from 'react';
 import dayjs from 'dayjs';
 
 function Story({ story, i }) {
-  const isRender = i !== 1;
   return (
     <div>
       <blockquote>
@@ -10,11 +9,9 @@ function Story({ story, i }) {
       </blockquote>
       <p>{story[`titleDescribeAu${i}`]}</p>
       <div>
-        {isRender && (
-          <p>
-            <img src={story[`miniImage${i}`]} alt="" />
-          </p>
-        )}
+        <p>
+          <img src={story[`miniImage${i}`]} alt="" />
+        </p>
         <p>{story[`describe${i}`]}</p>
       </div>
     </div>

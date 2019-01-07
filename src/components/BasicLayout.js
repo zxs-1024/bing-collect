@@ -36,8 +36,8 @@ class BasicLayout extends Component {
       <div className={`main-container ${scroll}`}>
         <Header />
         <div className="layout-container">
-          {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
+          {routes.map(route => (
+            <RouteWithSubRoutes key={route.path} {...route} />
           ))}
         </div>
         <Footer />

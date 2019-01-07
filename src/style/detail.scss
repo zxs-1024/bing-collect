@@ -24,7 +24,7 @@
 
 .single-post .post-head:before {
   content: '';
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
   position: absolute;
   top: 0;
   left: 0;
@@ -88,7 +88,7 @@
   font-size: 18px;
   line-height: 2.5rem;
   blockquote {
-    border-left: 2px solid #f5bb41;
+    border-left: 2px solid #ffe000;
     color: #999999;
     font-size: 1.7rem;
     line-height: 2.7rem;

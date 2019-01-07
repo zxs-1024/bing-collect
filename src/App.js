@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Pagination } from 'antd';
 import InfiniteScroll from 'react-infinite-scroller';
-import dayjs from 'dayjs';
-import { throttle, debounce } from 'throttle-debounce';
+import { throttle } from 'throttle-debounce';
 
 import axios from './axios';
 import BingImage from './components/BingImage';
@@ -45,18 +43,16 @@ class App extends Component {
     return (
       <div className="row loop">
         {docs.map((image, i) => {
-          const key = `${image._id}${Math.random()}`;
-          return <BingImage {...image} i={i} key={key} />;
+          return <BingImage {...image} i={i} key={image._id} />;
         })}
       </div>
     );
   };
 
   render() {
-    const { collect, total, page, limit } = this.state;
+    const { collect, page } = this.state;
     const loader = (
-      <div className="align-center">
-        {/* DuaRing: <DuaRing />, Ripple: <Ripple />, Ellipsis: <Ellipsis />, Pacman: <Pacman /> */}
+      <div className="align-center" key={'loading'}>
         <Loading type="Pacman" />
       </div>
     );

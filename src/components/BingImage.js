@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import { downloadFile } from '../utils';
 import '../style/image.scss';
+
+library.add(faDownload);
+library.add(faHeart);
 
 class BingImage extends Component {
   constructor(props) {
@@ -28,6 +34,7 @@ class BingImage extends Component {
     // const { loading } = this.state
     let {
       url,
+      name,
       copyright = '',
       Continent = '',
       Country = '',
@@ -39,7 +46,7 @@ class BingImage extends Component {
 
     date = dayjs(date).format('DD MMM YYYY');
     copyright = copyright.replace(/\(Bing China\)/, '');
-    const [copyrightBefore, copyrightAfter] = copyright.split('(');
+    const [copyrightBefore] = copyright.split('(');
     const first = i % 8 === 0 ? 'first' : '';
 
     return (
@@ -60,27 +67,18 @@ class BingImage extends Component {
                 <time>{date}</time>
                 <div className="tags">{`${Continent} ${Country} ${City}`}</div>
               </div>
-              <a
-                href="#"
-                className="read-later"
-                data-id="5b15af070e79df40e5b5d70f"
-              >
-                <i
-                  className="far fa-bookmark"
-                  data-toggle="tooltip"
-                  data-placement="right"
-                  title=""
-                  data-original-title="Bookmark article"
-                />
-                <i
-                  className="fas fa-bookmark"
-                  data-toggle="tooltip"
-                  data-placement="right"
-                  title=""
-                  data-original-title="Remove bookmark"
-                />
-              </a>
             </div>
+
+            <ul className="share">
+              <li>
+                <a href={url} download={name}>
+                  <FontAwesomeIcon className="download" icon="download" />
+                </a>
+              </li>
+              {/* <li>
+                <FontAwesomeIcon className="heart" icon="heart" />
+              </li> */}
+            </ul>
           </div>
         </article>
       </div>
