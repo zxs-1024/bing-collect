@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import RouteWithSubRoutes from '../config/RouteWithSubRoutes';
+import ScrollToTop from './ScrollToTop';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -13,6 +14,7 @@ class BasicLayout extends Component {
 
   componentDidMount() {
     this.addEventListenerScroll();
+    this.node.scrollIntoView();
   }
 
   addEventListenerScroll() {
@@ -33,14 +35,19 @@ class BasicLayout extends Component {
     const scroll = scrollTop === 0 ? '' : 'scroll';
 
     return (
-      <div className={`main-container ${scroll}`}>
-        <Header />
-        <div className="layout-container">
-          {routes.map(route => (
-            <RouteWithSubRoutes key={route.path} {...route} />
-          ))}
-        </div>
-        <Footer />
+      <div
+        className={`main-container ${scroll}`}
+        ref={node => (this.node = node)}
+      >
+        <ScrollToTop>
+          <Header />
+          <div className="layout-container">
+            {routes.map(route => (
+              <RouteWithSubRoutes key={route.path} {...route} />
+            ))}
+          </div>
+          <Footer />
+        </ScrollToTop>
       </div>
     );
   }

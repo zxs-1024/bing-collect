@@ -20,15 +20,11 @@ class App extends Component {
     this.handleSearchData = throttle(1000, this.handleSearchData);
   }
 
-  componentWillMount() {}
-
-  componentDidMount() {}
-
   handleSearchData = () => {
     let { collect, page, limit } = this.state;
     axios(`api/v1/images/${page}/${limit}`).then(({ docs, total }) => {
       collect = [...collect, ...docs];
-      page = page + 1;
+      page++;
       this.setState({ collect, total, page });
     });
   };

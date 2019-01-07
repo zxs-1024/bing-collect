@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faArrowAltCircleDown,
+  faHeart
+} from '@fortawesome/free-solid-svg-icons';
 
 import routes from './config/router.config';
 import RouteWithSubRoutes from './config/RouteWithSubRoutes';
@@ -11,6 +16,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'nprogress/nprogress'; // importing a css file from the nprogress node module
 import 'normalize.css';
 import './style/index.scss';
+
+library.add(faArrowAltCircleDown);
+library.add(faHeart);
 
 ReactDOM.render(
   <BrowserRouter>

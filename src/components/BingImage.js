@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import { downloadFile } from '../utils';
 import '../style/image.scss';
-
-library.add(faDownload);
-library.add(faHeart);
 
 class BingImage extends Component {
   constructor(props) {
@@ -72,7 +67,10 @@ class BingImage extends Component {
             <ul className="share">
               <li>
                 <a href={url} download={name}>
-                  <FontAwesomeIcon className="download" icon="download" />
+                  <FontAwesomeIcon
+                    className="download"
+                    icon="arrow-alt-circle-down"
+                  />
                 </a>
               </li>
               {/* <li>
