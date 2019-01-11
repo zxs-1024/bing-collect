@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
-// import { DatePicker } from 'antd'
 
+import Search from './Search';
 import '../style/header.scss';
-import logo from '../image/Bing-logo-2013.png';
+import logoImage from '../image/logo.png';
 
-// const { MonthPicker } = DatePicker
+function Logo() {
+  return (
+    <div className="blog-logo">
+      <a href="https://www.zhanghao-zhoushan.cn/bing" title="Bing">
+        <img src={logoImage} alt="logo" />
+      </a>
+    </div>
+  );
+}
 
-class BingHeader extends Component {
+class Header extends Component {
   render() {
     return (
       <header>
         <div className="container">
           <div className="row">
             <div className="col-3 ml-auto">
-              <div className="blog-logo">
-                <a
-                  href="https://poveglia.hauntedthemes.com"
-                  title="Poveglia - Multipurpose Ghost Theme by Haunted Themes"
-                >
-                  <img src={logo} alt="" />
-                </a>
+              <Logo />
+            </div>
+            <div className="col-9">
+              <div className="inner">
+                <Search />
               </div>
             </div>
-            <div className="col-9" />
           </div>
         </div>
       </header>
@@ -30,4 +35,4 @@ class BingHeader extends Component {
   }
 }
 
-export default BingHeader;
+export default Header;

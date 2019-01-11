@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { downloadFile } from '../utils';
 import '../style/image.scss';
-
 class BingImage extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +27,7 @@ class BingImage extends Component {
   render() {
     // const { loading } = this.state
     let {
-      url,
+      imageUrl,
       name,
       copyright = '',
       Continent = '',
@@ -39,10 +38,14 @@ class BingImage extends Component {
       i
     } = this.props;
 
-    date = dayjs(date).format('DD MMM YYYY');
-    copyright = copyright.replace(/\(Bing China\)/, '');
     const [copyrightBefore] = copyright.split('(');
     const first = i % 8 === 0 ? 'first' : '';
+    const downLoadUrl = imageUrl.replace(/_1920x1080|_1366x768/, '');
+
+    // 800x600 640x480 320x240
+    imageUrl = imageUrl.replace(/1920x1080|1366x768/, '640x480');
+    date = dayjs(date).format('DD MMM YYYY');
+    copyright = copyright.replace(/\(Bing China\)/, '');
 
     return (
       <div className={`${first} col-md-6 col-lg-4 item`}>
@@ -51,7 +54,7 @@ class BingImage extends Component {
             <div className="img-holder">
               <Link
                 className="featured-image"
-                style={{ backgroundImage: `url(${url})` }}
+                style={{ backgroundImage: `url(${imageUrl})` }}
                 to={`/detail/${id}`}
               />
             </div>
@@ -66,7 +69,7 @@ class BingImage extends Component {
 
             <ul className="share">
               <li>
-                <a href={url} download={name}>
+                <a href={downLoadUrl} download={name}>
                   <FontAwesomeIcon
                     className="download"
                     icon="arrow-alt-circle-down"

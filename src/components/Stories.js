@@ -5,25 +5,24 @@ function Story({ story, i }) {
   return (
     <div>
       <blockquote>
-        <p>{story[`titleDescribe${i}`]}</p>
+        <p>{story.title}</p>
       </blockquote>
-      <p>{story[`titleDescribeAu${i}`]}</p>
+      <p>{story.au}</p>
       <div>
         <p>
-          <img src={story[`miniImage${i}`]} alt="" />
+          <img src={story.miniUrl} alt="" />
         </p>
-        <p>{story[`describe${i}`]}</p>
+        <p>{story.describe}</p>
       </div>
     </div>
   );
 }
 
 function Stories({ stories }) {
-  const { title, date, Continent, Country, City } = stories;
+  const { title, date, story = [], Continent, Country, City } = stories;
   const placeArray = [Continent, Country, City]
     .filter(place => place)
     .join(' ');
-  const storyArray = [1, 2, 3];
   return (
     <div className="post-content">
       <h1>{title}</h1>
@@ -33,8 +32,8 @@ function Stories({ stories }) {
         <span className="place">{placeArray}</span>
       </div>
 
-      {storyArray.map(i => (
-        <Story story={stories} i={i} key={i} />
+      {story.map((item, i) => (
+        <Story story={item} i={i} key={i} />
       ))}
     </div>
   );

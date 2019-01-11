@@ -28,14 +28,14 @@ class Detail extends Component {
 
   render() {
     const {
-      data: { url, detail = {} }
+      data: { imageUrl, detail = {} }
     } = this.state;
     return (
       <div className="main-content-area single-post">
         <article>
           <div
             className="post-head"
-            style={{ backgroundImage: `url(${url})` }}
+            style={{ backgroundImage: `url(${imageUrl})` }}
           />
 
           <div className="container">
