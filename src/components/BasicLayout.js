@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import GithubCorner from 'react-github-corner';
 
 import FancyRoute from './FancyRoute';
 import ScrollToTop from './ScrollToTop';
@@ -34,7 +35,7 @@ class BasicLayout extends Component {
     const { routes } = this.props;
     const { scrollTop } = this.state;
     const scroll = scrollTop === 0 ? '' : 'scroll';
-
+    const customHref = 'https://github.com/zhanghao-zhoushan/bing-app';
     return (
       <div
         className={`main-container ${scroll}`}
@@ -54,6 +55,14 @@ class BasicLayout extends Component {
           </div>
           <Footer />
         </ScrollToTop>
+        <GithubCorner
+          href={customHref}
+          bannerColor="#F5BB41"
+          octoColor="#fff"
+          size={80}
+          direction="right"
+          svgStyle={{ mixBlendMode: 'darken' }}
+        />
       </div>
     );
   }

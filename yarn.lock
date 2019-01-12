@@ -8851,6 +8851,10 @@ react-error-overlay@^5.1.2:
   version "5.1.2"
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-5.1.2.tgz#888957b884d4b25b083a82ad550f7aad96585394"
 
+react-github-corner@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/react-github-corner/-/react-github-corner-2.3.0.tgz#73ab17324b670c9cd955567b09663d385cfb05ef"
+
 react-infinite-scroller@^1.2.4:
   version "1.2.4"
   resolved "http://registry.npm.zmops.cc/react-infinite-scroller/-/react-infinite-scroller-1.2.4.tgz#f67eaec4940a4ce6417bebdd6e3433bfc38826e9"
