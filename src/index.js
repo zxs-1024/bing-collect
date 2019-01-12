@@ -1,33 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch } from 'react-router-dom';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faArrowAltCircleDown,
-  faHeart
-} from '@fortawesome/free-solid-svg-icons';
+import NProgress from 'nprogress';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import routes from './config/router.config';
-import RouteWithSubRoutes from './config/RouteWithSubRoutes';
 import * as serviceWorker from './serviceWorker';
+import BasicLayout from './components/BasicLayout';
+import routes from './config/router.config';
+import './utils/icon';
 
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'nprogress/nprogress'; // importing a css file from the nprogress node module
 import 'normalize.css';
 import './style/index.scss';
 
-library.add(faArrowAltCircleDown);
-library.add(faHeart);
-
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      {routes.map(route => (
-        <RouteWithSubRoutes key={`${route.path}`} {...route} />
-      ))}
-    </Switch>
-  </BrowserRouter>,
+  <Router>
+    <BasicLayout routes={routes} />
+  </Router>,
   document.getElementById('root')
 );
 

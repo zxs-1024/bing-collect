@@ -27,7 +27,7 @@ class BingImage extends Component {
   render() {
     // const { loading } = this.state
     let {
-      imageUrl,
+      imageUrl = '',
       name,
       copyright = '',
       Continent = '',
@@ -55,7 +55,7 @@ class BingImage extends Component {
               <Link
                 className="featured-image"
                 style={{ backgroundImage: `url(${imageUrl})` }}
-                to={`/detail/${id}`}
+                to={`/story/${id}`}
               />
             </div>
 

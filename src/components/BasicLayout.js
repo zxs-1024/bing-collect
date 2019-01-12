@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
-import RouteWithSubRoutes from '../config/RouteWithSubRoutes';
+import FancyRoute from './FancyRoute';
 import ScrollToTop from './ScrollToTop';
 import Header from './Header';
 import Footer from './Footer';
@@ -42,8 +43,13 @@ class BasicLayout extends Component {
         <ScrollToTop>
           <Header />
           <div className="layout-container">
-            {routes.map(route => (
-              <RouteWithSubRoutes key={route.path} {...route} />
+            {routes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+              />
             ))}
           </div>
           <Footer />

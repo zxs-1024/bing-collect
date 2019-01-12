@@ -5,7 +5,6 @@ import { throttle } from 'throttle-debounce';
 import axios from './axios';
 import BingImage from './components/BingImage';
 import Loading from './components/Loading';
-import './style/main.scss';
 
 class App extends Component {
   constructor(props) {

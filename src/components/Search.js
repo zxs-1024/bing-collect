@@ -9,7 +9,7 @@ class Search extends Component {
 
   handleChange = e => {
     this.setState({ value: e.target.value });
-    console.log(this.state.value);
+    // console.log(this.state.value)
   };
 
   render() {
@@ -17,12 +17,14 @@ class Search extends Component {
 
     return (
       <div className="search-trigger">
-        <input
-          className="search-input"
-          type="search"
-          value={value}
-          onChange={this.handleChange}
-        />
+        {false && (
+          <input
+            className="search-input"
+            type="search"
+            value={value}
+            onChange={this.handleChange}
+          />
+        )}
       </div>
     );
   }

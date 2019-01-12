@@ -12,7 +12,7 @@ class Footer extends Component {
               © 2019 <a href="https://www.zhanghao-zhoushan.cn/bing">Bing</a>.
               All right Reserved. Powered by
               <a href="https://github.com/zhanghao-zhoushan/bing-app">
-                {' zhanghao-zhoushan'}
+                {' Sailor'}
               </a>
             </div>
           </div>

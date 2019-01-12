@@ -24,9 +24,7 @@ class Header extends Component {
               <Logo />
             </div>
             <div className="col-9">
-              <div className="inner">
-                <Search />
-              </div>
+              <div className="inner">{/* <Search /> */}</div>
             </div>
           </div>
         </div>
