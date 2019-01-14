@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import GithubCorner from 'react-github-corner';
 
-import FancyRoute from './FancyRoute';
 import ScrollToTop from './ScrollToTop';
 import Header from './Header';
 import Footer from './Footer';

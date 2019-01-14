@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 创建实例时设置配置的默认值
 const instance = axios.create({
-  baseURL: 'https://zhanghao-zhoushan.cn/bing/'
+  baseURL: 'https://zhanghao-zhoushan.cn/bing'
 });
 
 instance.defaults.timeout = 2500;

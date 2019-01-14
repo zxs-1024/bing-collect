@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Search from './Search';
+// import Search from './Search';
 import '../style/header.scss';
 import logoImage from '../image/logo.png';
 

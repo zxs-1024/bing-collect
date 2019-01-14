@@ -21,7 +21,7 @@ class App extends Component {
 
   handleSearchData = () => {
     let { collect, page, limit } = this.state;
-    axios(`api/v1/images/${page}/${limit}`).then(({ docs, total }) => {
+    axios(`/api/v1/images/${page}/${limit}`).then(({ docs, total }) => {
       collect = [...collect, ...docs];
       page++;
       this.setState({ collect, total, page });

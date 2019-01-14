@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NProgress from 'nprogress';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import * as serviceWorker from './serviceWorker';
 import BasicLayout from './components/BasicLayout';
 import routes from './config/router.config';
 import './utils/icon';
@@ -23,4 +21,3 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
