@@ -6,14 +6,17 @@ class ScrollToTop extends Component {
   componentWillMount() {
     NProgress.start();
   }
+
   componentDidMount() {
     NProgress.done();
   }
+
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       window.scrollTo(0, 0);
     }
   }
+
   render() {
     return this.props.children;
   }

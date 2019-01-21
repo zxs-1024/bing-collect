@@ -27,7 +27,7 @@ function Stories({ stories }) {
     <div className="post-content">
       <h1>{title}</h1>
 
-      <div className="post-meta">
+      <div className="post-meta-story">
         <time>{dayjs(date).format('DD MMM YYYY')}</time>
         <span className="place">{placeArray}</span>
       </div>

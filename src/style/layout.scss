@@ -274,6 +274,10 @@
 }
 
 @media (max-width: 575px) {
+  .github-corner svg {
+    height: 60px;
+    width: 60px;
+  }
   .content-inner {
     padding: 20px 0px 0 0px;
   }

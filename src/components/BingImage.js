@@ -10,7 +10,6 @@ class BingImage extends Component {
     super(props);
     this.state = { loading: true };
   }
-  componentWillMount() {}
 
   componentDidMount() {
     window.addEventListener('resize', this.resizeListener);
@@ -25,7 +24,6 @@ class BingImage extends Component {
   };
 
   render() {
-    // const { loading } = this.state
     let {
       imageUrl = '',
       name,
@@ -42,7 +40,6 @@ class BingImage extends Component {
     const first = i % 8 === 0 ? 'first' : '';
     const downLoadUrl = imageUrl.replace(/_1920x1080|_1366x768/, '');
 
-    // 800x600 640x480 320x240
     imageUrl = imageUrl.replace(/1920x1080|1366x768/, '640x480');
     date = dayjs(date).format('DD MMM YYYY');
     copyright = copyright.replace(/\(Bing China\)/, '');
