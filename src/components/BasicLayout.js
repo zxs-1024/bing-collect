@@ -5,6 +5,7 @@ import GithubCorner from 'react-github-corner';
 import ScrollToTop from './ScrollToTop';
 import Header from './Header';
 import Footer from './Footer';
+import Navigation from './Navigation';
 
 import '../style/layout.scss';
 
@@ -54,6 +55,7 @@ class BasicLayout extends Component {
           </div>
           <Footer />
         </ScrollToTop>
+        <Navigation />
         <GithubCorner
           href={customHref}
           bannerColor="#F5BB41"

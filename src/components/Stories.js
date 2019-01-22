@@ -23,6 +23,7 @@ function Stories({ stories }) {
   const placeArray = [Continent, Country, City]
     .filter(place => place)
     .join(' ');
+
   return (
     <div className="post-content">
       <h1>{title}</h1>
