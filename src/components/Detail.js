@@ -12,7 +12,7 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    this.handleGetDetails();
+    // this.handleGetDetails()
   }
 
   handleGetDetails = () => {
