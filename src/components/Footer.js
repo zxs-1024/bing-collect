@@ -9,8 +9,9 @@ class Footer extends Component {
         <div className="container">
           <div className="footer-bottom-wrap clearfix">
             <div className="copyright-info">
-              © 2019 <a href="https://www.zhanghao-zhoushan.cn/bing">Bing</a>.
-              All right Reserved. Powered by
+              © 2019{' '}
+              <a href="https://www.zhanghao-zhoushan.cn/bing-app">Bing</a>. All
+              right Reserved. Powered by
               <a href="https://github.com/zhanghao-zhoushan/bing-app">
                 {' Sailor'}
               </a>
