@@ -8,7 +8,12 @@ import '../style/detail.scss';
 class Detail extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: { detail: {} } };
+    this.state = {
+      data: {
+        detail: {}
+      },
+      loading: true
+    };
   }
 
   componentDidMount() {
@@ -26,16 +31,31 @@ class Detail extends Component {
     });
   };
 
+  handleImageLoaded = e => {
+    this.setState({ loading: false });
+  };
+
   render() {
     const {
-      data: { imageUrl, detail = {} }
+      data: { imageUrl = '', detail = {} },
+      loading
     } = this.state;
+
+    const mini = imageUrl.replace(/1920x1080|1366x768/, '640x480');
+    const isBlur = loading ? 'blur' : '';
     return (
       <div className="main-content-area single-post">
         <article>
           <div
-            className="post-head"
-            style={{ backgroundImage: `url(${imageUrl})` }}
+            className={`post-head ${isBlur}`}
+            style={{ backgroundImage: `url(${loading ? mini : imageUrl})` }}
+          />
+
+          <img
+            style={{ display: 'none' }}
+            src={imageUrl}
+            onLoad={this.handleImageLoaded}
+            alt=""
           />
 
           <div className="container">
