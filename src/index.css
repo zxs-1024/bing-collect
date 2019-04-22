@@ -6,12 +6,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 300;
-  color: #3f3f3f;
-  background: #fff;
-  font-size: 14px;
 }
 
-.align-center {
-  text-align: center;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

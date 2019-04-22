@@ -1,6 +1,6 @@
 {
-  "short_name": "Bing 壁纸",
-  "name": "好看的 Bing 壁纸",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
