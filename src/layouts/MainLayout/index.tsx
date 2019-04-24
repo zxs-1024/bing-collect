@@ -1,14 +1,16 @@
 import * as React from 'react'
-import classes from './index.module.scss';
+
+import Header from '../../components/Header/index'
+import Footer from '../../components/Footer/index'
+
+import classes from './index.module.scss'
 
 const MainLayout: React.FC = props => {
   return (
     <div className={classes.layout}>
-      <header>header</header>
+      <Header />
       <div>{props.children}</div>
-      <footer className={classes.footer}>
-        footer
-      </footer>
+      <Footer />
     </div>
   )
 }
