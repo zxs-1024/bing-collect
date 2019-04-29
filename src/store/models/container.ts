@@ -1,12 +1,12 @@
 import { createModel } from '@rematch/core'
-import { queryProjectNotice } from '../../services/api'
+import { getImageList } from '../../services/api'
 
 export type ContainerState = {
   docs: []
   total: number
 }
 
-export const bing = createModel({
+export const container = createModel({
   state: {
     docs: [],
     total: 0
@@ -22,8 +22,8 @@ export const bing = createModel({
   },
   effects: dispatch => ({
     async getContainerList() {
-      queryProjectNotice().then((data: ContainerState) => {
-        dispatch.bing.setContainerList(data)
+      getImageList().then((data: ContainerState) => {
+        dispatch.container.setContainerList(data)
       })
     }
   })

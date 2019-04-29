@@ -5,11 +5,11 @@ import { iRootState, Dispatch } from '../../store'
 import classes from './index.module.scss'
 
 const mapState = (state: iRootState) => ({
-  bing: state.bing
+  container: state.container
 })
 
 const mapDispatch: any = (dispatch: Dispatch) => ({
-  getContainerList: dispatch.bing.getContainerList
+  getContainerList: dispatch.container.getContainerList
 })
 
 type connectedProps = ReturnType<typeof mapState> &
@@ -22,10 +22,9 @@ const Container: React.FC<Props> = props => {
   })
 
   return (
-    <div>
-      Container
-      {props.bing.total}
-      {props.bing.docs.map((item: any, i: number) => {
+    <div className={classes.container}>
+      {props.container.total}
+      {props.container.docs.map((item: any, i: number) => {
         return <div key={i}>{item.copyright}</div>
       })}
     </div>

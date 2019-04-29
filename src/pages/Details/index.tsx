@@ -22,7 +22,7 @@ const Details: React.FC<Props> = props => {
     props.getContainerList(id)
   })
 
-  return <div>{JSON.stringify(props.details)}</div>
+  return <div className={classes.details}>{JSON.stringify(props.details)}</div>
 }
 
 export default connect(

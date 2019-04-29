@@ -1,4 +1,4 @@
-import { bing } from './bing'
+import { container } from './container'
 import { details } from './details'
 
-export { bing, details }
+export { container, details }
