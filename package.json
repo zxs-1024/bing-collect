@@ -13,12 +13,12 @@
     "axios": "^0.18.0",
     "dayjs": "^1.8.13",
     "fetch": "^1.1.0",
+    "normalize.css": "^8.0.1",
     "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.2",
     "react-router-dom": "^5.0.0",
-    "react-scrip2ts": "2.1.8",
     "typescript": "3.4.4",
     "umi-request": "^1.0.7"
   },
