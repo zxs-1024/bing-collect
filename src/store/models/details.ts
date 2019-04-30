@@ -1,5 +1,5 @@
 import { createModel } from '@rematch/core'
-import { getImageDetails } from '../../services/api'
+import { getImageDetails } from '@/services/api'
 
 export type ContainerState = Container
 

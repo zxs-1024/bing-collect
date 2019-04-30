@@ -1,5 +1,5 @@
 // import { stringify } from 'qs'
-import request from '../utils/request'
+import request from '@/utils/request'
 
 export async function getImageList({ page = 1, limit = 8 } = {}) {
   return request(`/api/v1/images/${page}/${limit}`)

@@ -2,8 +2,8 @@ import * as React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import MainLayout from './layouts/MainLayout'
-import Container from './pages/Container/index'
-import Details from './pages/Details/index'
+import Container from './pages/Container'
+import Details from './pages/Details'
 
 const App: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { iRootState, Dispatch } from '../../store'
+import { iRootState, Dispatch } from '@/store'
 import classes from './index.module.scss'
 
 const mapState = (state: iRootState) => ({
