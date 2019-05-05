@@ -74,3 +74,8 @@ add `tsconfig.paths.json` file
   "extends": "./tsconfig.paths.json"
 }
 ```
+
+## Flag
+
+- [ ] 历史列表
+- [ ] 测试用例

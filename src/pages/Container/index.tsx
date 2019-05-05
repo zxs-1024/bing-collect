@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
+import ImageContent from '@/components/ImageContent'
 import { iRootState, Dispatch } from '@/store'
 import classes from './index.module.scss'
 
@@ -20,12 +21,11 @@ const Container: React.FC<Props> = props => {
   useState(() => {
     props.getContainerList()
   })
-
   return (
     <div className={classes.container}>
       {props.container.total}
-      {props.container.docs.map((item: any, i: number) => {
-        return <div key={i}>{item.copyright}</div>
+      {props.container.docs.map((image: any, i: number) => {
+        return <ImageContent key={i} image={image} />
       })}
     </div>
   )
