@@ -5,8 +5,6 @@ import MainLayout from './layouts/MainLayout'
 import Container from './pages/Container'
 import Details from './pages/Details'
 
-import '@/style/layout.scss'
-
 const App: React.FC = () => {
   return (
     <Router>
