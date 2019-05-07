@@ -1,11 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import 'bootstrap/dist/css/bootstrap.css'
 import 'normalize.css'
 
 import { store } from './store'
-import './index.scss'
 import App from './App'
+import './index.scss'
+import './utils/icon'
+
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(

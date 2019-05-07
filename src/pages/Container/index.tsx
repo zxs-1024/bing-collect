@@ -22,8 +22,7 @@ const Container: React.FC<Props> = props => {
     props.getContainerList()
   })
   return (
-    <div className={classes.container}>
-      {props.container.total}
+    <div className={`${classes.container} row loop`}>
       {props.container.docs.map((image: any, i: number) => {
         return <ImageContent key={i} image={image} />
       })}
