@@ -5,7 +5,7 @@ import classes from './index.module.scss'
 const Footer: React.FC = () => {
   return (
     <footer>
-      <div className={classes.container}>
+      <div className="container">
         {/* clearfix */}
         <div className={classes.footerBottomWrap}>
           <div className={classes.copyrightInfo}>

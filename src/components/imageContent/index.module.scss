@@ -105,11 +105,17 @@ time {
   font-size: 14px;
 }
 
-.loop .item.first .imgHolder a:before,
-.loop .item.first .excerpt:before,
-.loop .item.first + .item .imgHolder a:before,
-.loop .item.first + .item .excerpt:before {
+.item.first .imgHolder a:before,
+.item.first .excerpt:before,
+.item.first + .item .imgHolder a:before,
+.item.first + .item .excerpt:before {
   padding-bottom: 66.66%;
+}
+
+.item.first,
+.item.first + .item {
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
 .post .imgHolder .featuredImage:before,

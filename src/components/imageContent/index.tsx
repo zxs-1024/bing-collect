@@ -1,50 +1,50 @@
 import * as React from 'react'
-import dayjs from 'dayjs'
 import { Link } from 'react-router-dom'
+
+import dayjs from 'dayjs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import classes from './index.module.scss'
+
 export interface imageContentProps {
-  [key: string]: any
+  i: number
+  image: any
 }
 
 const ImageContent: React.FC<imageContentProps> = props => {
-  let {
-    imageUrl = '',
+  const {
+    imageUrl,
     name,
-    copyright = '',
+    copyright,
     Continent,
     Country,
     City,
     date,
-    id,
-    i
+    id
   } = props.image
 
-  const [copyrightBefore] = copyright.split('(')
-  const first = i % 8 === 0 ? 'first' : ''
-  const downLoadUrl = imageUrl.replace(/_1920x1080|_1366x768/, '')
-
-  imageUrl = imageUrl.replace(/1920x1080|1366x768/, '640x480')
-  date = dayjs(date || new Date()).format('DD MMM YYYY')
-  copyright = copyright.replace(/\(Bing China\)/, '')
+  const [copyrightBefore] = copyright && copyright.split('(')
+  const isFirst = props.i % 8 === 0 ? classes.first : ''
+  const downLoadUrl = imageUrl && imageUrl.replace(/_1920x1080|_1366x768/, '')
+  const minImage = imageUrl && imageUrl.replace(/1920x1080|1366x768/, '640x480')
+  const formatDate = dayjs(date || new Date()).format('DD MMM YYYY')
 
   return (
-    <div className={`${classes.item} ${first} col-md-6 col-lg-4`}>
-      <article className={`${classes.post} tag-general tag-world`}>
+    <div className={`${classes.item} ${isFirst} col-md-6 col-lg-4`}>
+      <article className={`${classes.post}`}>
         <div className={classes.postInnerContent}>
           <div className={classes.imgHolder}>
             <Link
               className={classes.featuredImage}
-              style={{ backgroundImage: `url(${imageUrl})` }}
+              style={{ backgroundImage: `url(${minImage})` }}
               to={`/story/${id}`}
             />
           </div>
 
           <div className={classes.inner}>
             <h2 className={classes.postTitle}>{copyrightBefore}</h2>
-            <div className="postMeta">
-              <time>{date}</time>
+            <div className={classes.postMeta}>
+              <time>{formatDate}</time>
               <div className={classes.tags}>{`${Continent || ''} ${Country ||
                 ''} ${City || ''}`}</div>
             </div>

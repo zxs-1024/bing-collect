@@ -1,0 +1,37 @@
+@media (min-width: 600px) {
+  .search-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .search-input {
+    width: 16px;
+    transition: width 0.2s ease, padding 0.2s ease;
+    padding-left: 16px;
+  }
+}
+
+.search-input {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: #3f3f3f;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: inherit;
+  position: relative;
+  padding: 5px 5px 5px 29px;
+  background-image: url('../image/search.svg');
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 5px;
+  caret-color: #ffe000;
+  border-bottom: 1px solid #ffe000;
+
+  &:focus {
+    outline: none;
+    width: 100%;
+  }
+}

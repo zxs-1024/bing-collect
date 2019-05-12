@@ -17,14 +17,15 @@ type connectedProps = ReturnType<typeof mapState> &
   ReturnType<typeof mapDispatch>
 type Props = connectedProps
 
+// useState page 放在组件中，数据放入 rematch
 const Container: React.FC<Props> = props => {
   useState(() => {
     props.getContainerList()
   })
   return (
-    <div className={`${classes.container} row loop`}>
+    <div className="row">
       {props.container.docs.map((image: any, i: number) => {
-        return <ImageContent key={i} image={image} />
+        return <ImageContent key={i} image={image} i={i} />
       })}
     </div>
   )

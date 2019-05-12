@@ -1,23 +1,21 @@
 import { createModel } from '@rematch/core'
 import { getImageDetails } from '@/services/api'
 
-export type ContainerState = Container
-
-interface Container {
+export type DetailsState = {
   [propName: string]: string
 }
 
 export const details = createModel({
   state: {},
   reducers: {
-    setContainerList: (state: ContainerState, payload: ContainerState) => {
+    setImageDetails: (state: DetailsState, payload: DetailsState) => {
       return {...payload }
     }
   },
   effects: dispatch => ({
-    async getContainerList(id) {
-      getImageDetails(id).then((data: ContainerState) => {
-        dispatch.details.setContainerList(data)
+    async getImageDetails(id) {
+      getImageDetails(id).then((data: DetailsState) => {
+        dispatch.details.setImageDetails(data)
       })
     }
   })

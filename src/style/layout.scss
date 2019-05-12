@@ -1,0 +1,298 @@
+.main-container {
+  margin-top: 165px;
+}
+
+.layout-container {
+  min-height: 800px;
+}
+
+.github-corner svg {
+  z-index: 999;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.scroll header {
+  height: 60px;
+  border-bottom: 1px solid #ededed;
+}
+
+.loop .item.first,
+.loop .item.first + .item {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+/* ==========================================================================
+   10. Responsive
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .btn {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+  .loop .item.first .excerpt span,
+  .loop .item.first + .item .excerpt span {
+    font-size: 21px;
+  }
+  .sidebar .widget-share .share a {
+    width: 50px;
+    height: 50px;
+  }
+  .sidebar .widget .tags .btn {
+    padding: 5px 10px;
+  }
+  .editor-content iframe[src*="https://www.youtube.com/"] {
+    height: calc(610px / 1.77777778) !important;
+  }
+  .modal .close {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .loop .item.first .excerpt span,
+  .loop .item.first + .item .excerpt span,
+  .post .excerpt span {
+    font-size: 14px;
+    height: calc(100% - 70px);
+    margin-bottom: 40px;
+  }
+  header .navigation-trigger {
+    display: flex;
+  }
+  header .nav {
+    display: none;
+  }
+  header .navigation {
+    border: none;
+    margin: 0;
+  }
+  .editor-content iframe[src*="https://www.youtube.com/"] {
+    height: calc(690px / 1.77777778) !important;
+  }
+  .sidebar .loop .post .excerpt span {
+    display: block;
+  }
+  .sidebar .loop .post .excerpt:after {
+    display: none;
+  }
+  .sidebar .widget-share .share {
+    justify-content: flex-start;
+  }
+  .sidebar .widget-share .share a {
+    margin-right: 5px;
+  }
+  .sidebar {
+    margin-top: 50px;
+  }
+  .related-posts .loop .item:nth-child(3) {
+    display: none;
+  }
+  .loop .item.first .img-holder a:before,
+  .loop .item.first .excerpt:before,
+  .loop .item.first + .item .img-holder a:before,
+  .loop .item.first + .item .excerpt:before {
+    padding-bottom: 75%;
+  }
+  .read-later {
+    opacity: 1;
+  }
+  form[action*="https://formspree.io/"] {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar .widget .loop .item:nth-last-child(-n + 2) .post {
+    margin-bottom: 30px;
+  }
+  .btn {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  input,
+  textarea {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  h5 {
+    font-size: 14px;
+  }
+
+  h6 {
+    font-size: 12px;
+  }
+  .modal {
+    max-width: 320px;
+  }
+  .modal .modal-body {
+    padding: 0;
+  }
+  .modal .close {
+    font-size: 16px;
+    height: 40px;
+    width: 40px;
+    right: 15px;
+    top: 15px;
+  }
+  .modal .modal-title {
+    padding-bottom: 10px;
+    width: 100%;
+    margin-top: 40px;
+  }
+  header {
+    height: 65px;
+  }
+  header .blog-logo img {
+    max-height: 60px;
+    max-width: 150px;
+  }
+  header .blog-logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  header .progress {
+    height: 3px;
+  }
+  header .info-bar {
+    bottom: -7px;
+  }
+  header .blog-logo span {
+    font-size: 24px;
+  }
+  .main-container {
+    margin-top: 80px;
+  }
+  .loop .item.first .excerpt:before,
+  .loop .item.first + .item .excerpt:before,
+  .post .excerpt:before {
+    padding-bottom: 200px;
+  }
+  #search-field {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 15px 10px 10px 0;
+    width: calc(100% - 55px);
+  }
+  .modal .loop .item:nth-last-child(-n + 3) .post {
+    margin-bottom: 30px;
+  }
+  .modal .loop .item:last-child {
+    margin-bottom: 0;
+  }
+  #load-posts {
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .loop .item.first,
+  .loop .item.first + .item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  code {
+    font-size: 14px;
+  }
+  pre .hljs,
+  pre {
+    font-size: 13px;
+  }
+  pre {
+    padding: 20px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+  hr {
+    margin: 30px 0;
+  }
+  .editor-content iframe[src*="https://www.youtube.com/"] {
+    height: calc(510px / 1.77777778) !important;
+  }
+  .content-inner .editor-content ul,
+  .content-inner .editor-content ol {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .content-inner p {
+    line-height: 24px;
+    font-size: 14px;
+  }
+  .related-posts .loop .post {
+    margin-bottom: 30px;
+  }
+  .related-posts .loop .item:nth-child(3) {
+    display: block;
+  }
+  .content-inner .post-title,
+  .tag {
+    margin-bottom: 35px;
+  }
+  .author p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .gh-signin button[type='submit'] {
+    background: #ffffff;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 14px;
+  }
+
+  .subscribe .main-container {
+    padding: 50px 0;
+  }
+  .go-up {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .github-corner svg {
+    height: 60px;
+    width: 60px;
+  }
+  .content-inner {
+    padding: 20px 0px 0 0px;
+  }
+  .author-template .author {
+    align-items: flex-start;
+  }
+  .author .author-content .share {
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+  .author .author-content .share li:first-child a {
+    margin-left: 0;
+  }
+
+  .editor-content iframe[src*="https://www.youtube.com/"] {
+    height: calc((100vw - 30px) / 1.77777778) !important;
+  }
+}

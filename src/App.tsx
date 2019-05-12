@@ -10,7 +10,7 @@ const App: React.FC = () => {
     <Router>
       <MainLayout>
         <Route exact path="/" component={Container} />
-        <Route path="/details/:id" component={Details} />
+        <Route path="/story/:id" component={Details} />
       </MainLayout>
     </Router>
   )
