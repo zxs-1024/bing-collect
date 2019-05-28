@@ -1171,6 +1171,12 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-infinite-scroller@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npm.taobao.org/@types/react-infinite-scroller/download/@types/react-infinite-scroller-1.2.1.tgz#1cd747ef8f50d3c883e375c0491a906e5436fcb2"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-redux@^7.0.8":
   version "7.0.8"
   resolved "https://registry.npm.taobao.org/@types/react-redux/download/@types/react-redux-7.0.8.tgz#c928863058e334d41031c6bedd0f113bc514e234"
@@ -8114,7 +8120,7 @@ react-slick@~0.24.0:
 
 react@^16.8.6:
   version "16.8.6"
-  resolved "http://registry.npm.taobao.org/react/download/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
+  resolved "https://registry.npm.taobao.org/react/download/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

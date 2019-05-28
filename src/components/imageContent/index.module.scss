@@ -125,3 +125,11 @@ time {
   width: 100%;
   padding-bottom: 75%;
 }
+
+@media (max-width: 767px) {
+  .item.first,
+  .item.first + .item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
