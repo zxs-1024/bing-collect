@@ -21,12 +21,12 @@ type connectedProps = ReturnType<typeof mapState> &
 type Props = connectedProps
 
 const loader = (
-  <div className="align-center" key={'loading'}>
+  <div className={classes.loadingContent} key={'loading'}>
     <Loading type="Pacman" />
   </div>
 )
 
-// useState page 放在组件中，数据放入 rematch
+// useState page in component, data in rematch.
 const Container: React.FC<Props> = props => {
   useState(() => {
     props.getContainerList()

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { iRootState, Dispatch } from '@/store'
+import Story, { StoryProps } from '@/components/Story'
 import classes from './index.module.scss'
 
 const mapState = (state: iRootState) => ({
@@ -19,11 +20,12 @@ type Props = connectedProps
 const Details: React.FC<Props> = props => {
   useState(() => {
     const { id } = props.match.params
-    console.log('call getImageDetails')
     props.getImageDetails(id)
   })
-  const {imageUrl = ''} = props.details
+  const { detail = {}, imageUrl = '' } = props.details
+  const { story: stories = [] } = detail
   const mini = imageUrl.replace(/1920x1080|1366x768/, '640x480')
+
   return (
     <div className={`${classes.mainContentArea} ${classes.singlePost}`}>
       <article>
@@ -42,7 +44,11 @@ const Details: React.FC<Props> = props => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              {/* <Stories stories={detail} /> */}
+              {
+                stories.map((story: any) => {
+                  return <Story story={story} key={story._id} />
+                })
+              }
             </div>
           </div>
         </div>
