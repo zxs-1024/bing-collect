@@ -7990,6 +7990,10 @@ react-error-overlay@^5.1.5:
   version "5.1.5"
   resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-5.1.5.tgz#884530fd055476c764eaa8ab13b8ecf1f57bbf2c"
 
+react-github-corner@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npm.taobao.org/react-github-corner/download/react-github-corner-2.3.0.tgz#73ab17324b670c9cd955567b09663d385cfb05ef"
+
 react-infinite-scroller@^1.2.4:
   version "1.2.4"
   resolved "https://registry.npm.taobao.org/react-infinite-scroller/download/react-infinite-scroller-1.2.4.tgz#f67eaec4940a4ce6417bebdd6e3433bfc38826e9"
