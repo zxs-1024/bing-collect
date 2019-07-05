@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import dayjs from 'dayjs';
 
 import { iRootState, Dispatch } from '@/store'
 import Story, { StoryProps } from '@/components/Story'
 import classes from './index.module.scss'
+
 
 const mapState = (state: iRootState) => ({
   details: state.details
@@ -23,7 +25,9 @@ const Details: React.FC<Props> = props => {
     props.getImageDetails(id)
   })
   const { detail = {}, imageUrl = '' } = props.details
-  const { story: stories = [] } = detail
+  const { title, date, Continent, Country, City, story: stories = [] } = detail
+  const position = [Continent, Country, City]
+
   const mini = imageUrl.replace(/1920x1080|1366x768/, '640x480')
 
   return (
@@ -44,11 +48,18 @@ const Details: React.FC<Props> = props => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              {
-                stories.map((story: any) => {
-                  return <Story story={story} key={story._id} />
-                })
-              }
+              <div className={classes.postContent}>
+                <h1>{title}</h1>
+                <div className={classes.postMetaStory}>
+                  <time>{dayjs(date).format('DD MMM YYYY')}</time>
+                  <span className={classes.position}>{position}</span>
+                </div>
+                {
+                  stories.map((story: any) => {
+                    return <Story story={story} key={story._id} />
+                  })
+                }
+              </div>
             </div>
           </div>
         </div>

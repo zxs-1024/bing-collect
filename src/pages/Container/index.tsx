@@ -33,17 +33,19 @@ const Container: React.FC<Props> = props => {
   })
 
   return (
-    <InfiniteScroll
-      pageStart={0}
-      loadMore={props.getContainerList}
-      hasMore={true}
-      loader={loader}
-      className="row"
-    >
-      {props.container.docs.map((image: any, i: number) => {
-        return <ImageContent key={i} image={image} i={i} />
-      })}
-    </InfiniteScroll>
+    <div className="container">
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={props.getContainerList}
+        hasMore={true}
+        loader={loader}
+        className="row"
+      >
+        {props.container.docs.map((image: any, i: number) => {
+          return <ImageContent key={i} image={image} i={i} />
+        })}
+      </InfiniteScroll>
+    </div>
   )
 }
 
