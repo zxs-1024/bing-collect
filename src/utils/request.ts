@@ -3,7 +3,7 @@
  * 更详细的 api 文档: https://github.com/umijs/umi-request
  */
 import { extend } from 'umi-request'
-import { notification } from 'antd'
+// import { notification } from 'antd'
 
 interface ResponseError<D = any> extends Error {
   name: string
@@ -41,10 +41,10 @@ const errorHandler = (error: ResponseError) => {
   const description = codeMessage[response.status] || response.statusText
   const { status, url } = response
 
-  notification.error({
-    message: `请求错误 ${status}: ${url}`,
-    description
-  })
+  // notification.error({
+  //   message: `请求错误 ${status}: ${url}`,
+  //   description
+  // })
 }
 
 /**

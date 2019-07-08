@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroller'
 
@@ -26,9 +26,9 @@ const loader = (
   </div>
 )
 
-// useState page in component, data in rematch.
+// useEffect page in component, data in rematch.
 const Container: React.FC<Props> = props => {
-  useState(() => {
+  useEffect(() => {
     props.getContainerList()
   })
 
@@ -42,7 +42,7 @@ const Container: React.FC<Props> = props => {
         className="row"
       >
         {props.container.docs.map((image: any, i: number) => {
-          return <ImageContent key={i} image={image} i={i} />
+          return <ImageContent key={image.dateString} image={image} i={i} />
         })}
       </InfiniteScroll>
     </div>

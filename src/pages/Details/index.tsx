@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import dayjs from 'dayjs';
 
@@ -20,7 +20,7 @@ type connectedProps = ReturnType<typeof mapState> &
 type Props = connectedProps
 
 const Details: React.FC<Props> = props => {
-  useState(() => {
+  useEffect(() => {
     const { id } = props.match.params
     props.getImageDetails(id)
   })
