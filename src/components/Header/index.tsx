@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 
 import logo from '../../assets/logo.png'
 import classes from './index.module.scss'
@@ -22,7 +23,12 @@ const Header: React.FC = () => {
               <Logo />
             </div>
             <div className="col-9">
-              <div className="inner">{/* <Search /> */}</div>
+              <div className="inner">
+                <Link
+                  className={classes.featuredImage}
+                  to={`/history`}
+                />
+              </div>
             </div>
           </div>
         </div>
