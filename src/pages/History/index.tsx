@@ -5,7 +5,6 @@ import { iRootState, Dispatch } from '@/store'
 import InfiniteScroll from 'react-infinite-scroller'
 import ImageContent from '@/components/ImageContent'
 import Loading from '@/components/Loading'
-import { getHistoryYears } from '@/utils/helpers'
 import classes from './index.module.scss'
 
 
@@ -29,7 +28,7 @@ const loader = (
 
 const History: React.FC<Props> = props => {
   const [year, setYear] = useState(new Date().getFullYear())
-  const [historyYears] = useState(getHistoryYears())
+  const [hasMore, setHasMore] = useState(true)
 
   useEffect(() => {
     props.getImageHistory(year)
@@ -39,6 +38,8 @@ const History: React.FC<Props> = props => {
     const startYear = 2009
     if (year - 1 > startYear) {
       setYear(year - 1)
+    } else {
+      setHasMore(false)
     }
   }
 
@@ -47,7 +48,7 @@ const History: React.FC<Props> = props => {
       <InfiniteScroll
         pageStart={0}
         loadMore={handleGetImageHistory}
-        hasMore={true}
+        hasMore={hasMore}
         loader={loader}
         className="row"
       >

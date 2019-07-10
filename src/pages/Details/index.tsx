@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import dayjs from 'dayjs';
 
 import { iRootState, Dispatch } from '@/store'
-import Story, { StoryProps } from '@/components/Story'
+import Story from '@/components/Story'
 import classes from './index.module.scss'
 
 

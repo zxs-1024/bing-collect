@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroller'
+import { debounce } from 'throttle-debounce'
 
 import ImageContent from '@/components/ImageContent'
 import Loading from '@/components/Loading'
@@ -28,16 +29,31 @@ const loader = (
 
 // useEffect page in component, data in rematch.
 const Container: React.FC<Props> = props => {
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
+
+
   useEffect(() => {
-    props.getContainerList()
-  })
+    setHasMore(true)
+    props.getContainerList({ page }).then(() => setHasMore(false)
+    )
+  }, [page])
+
+  const debounceSetPage = debounce(300, () => setPage(page + 1))
+
+  /**
+   * use react-infinite-scroller
+   * loadMore={() => setPage(page + 1)}
+   * Maximum update depth exceeded
+   * https://github.com/CassetteRocks/react-infinite-scroller/issues/163
+   */
 
   return (
     <div className="container">
       <InfiniteScroll
         pageStart={0}
-        loadMore={props.getContainerList}
-        hasMore={true}
+        loadMore={debounceSetPage}
+        hasMore={hasMore}
         loader={loader}
         className="row"
       >
