@@ -8,26 +8,29 @@ import classes from './index.module.scss'
 
 export interface imageContentProps {
   i: number
-  image: any
+  image: any,
+  linkPath?: string
 }
 
 const ImageContent: React.FC<imageContentProps> = props => {
   const {
-    imageUrl,
+    imageUrl = '',
+    date = '',
     name,
     copyright,
     Continent,
     Country,
     City,
-    date,
-    id
+    _id: id
   } = props.image
 
   const [copyrightBefore] = copyright && copyright.split('(')
   const isFirst = props.i % 8 === 0 ? classes.first : ''
-  const downLoadUrl = imageUrl && imageUrl.replace(/_1920x1080|_1366x768/, '')
-  const minImage = imageUrl && imageUrl.replace(/1920x1080|1366x768/, '640x480')
-  const formatDate = dayjs(date || new Date()).format('DD MMM YYYY')
+  const regExp = /_1920x1080|_1366x768/
+  const downLoadUrl = imageUrl.replace(regExp, '')
+  const minImage = imageUrl.replace(regExp, '_640x480')
+  const formatDate = dayjs(date).format('DD MMM YYYY')
+  const linkPath = props.linkPath || `/story/${id}`
 
   return (
     <div className={`${classes.item} ${isFirst} col-md-6 col-lg-4`}>
@@ -37,7 +40,7 @@ const ImageContent: React.FC<imageContentProps> = props => {
             <Link
               className={classes.featuredImage}
               style={{ backgroundImage: `url(${minImage})` }}
-              to={`/story/${id}`}
+              to={linkPath}
             />
           </div>
 

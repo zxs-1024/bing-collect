@@ -41,6 +41,7 @@ const errorHandler = (error: ResponseError) => {
   const description = codeMessage[response.status] || response.statusText
   const { status, url } = response
 
+  console.error(`请求错误 ${status}: ${url}`, description)
   // notification.error({
   //   message: `请求错误 ${status}: ${url}`,
   //   description

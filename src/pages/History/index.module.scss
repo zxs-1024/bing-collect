@@ -1,20 +1,13 @@
 .history {
-  .historyYears {
-    margin-bottom: 20px;
-    overflow-x: scroll;
-    width: 100%;
-    padding: 10px;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    .year {
-      cursor: pointer;
-      padding: 10px;
-      font-size: 16px;
-    }
-  }
   .loadingContent {
     width: 100%;
+    text-align: center;
+  }
+  .title {
+    margin: 32px 0;
+    font-size: 2rem;
+    line-height: 1.6;
+    font-style: italic;
     text-align: center;
   }
 }

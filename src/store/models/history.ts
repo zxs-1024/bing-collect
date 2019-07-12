@@ -2,7 +2,7 @@ import { createModel } from '@rematch/core'
 import { getImageHistoryByYear } from '@/services/api'
 
 export type ContainerState = {
-  docs: []
+  docs: [][]
 }
 
 export const history = createModel({
@@ -11,9 +11,11 @@ export const history = createModel({
   },
   reducers: {
     setImageHistory: (state: ContainerState, payload: []) => {
-      const { docs } = state
+      const { docs = [] } = state
+      docs.push(payload)
+
       return {
-        docs: [...docs, ...payload]
+        docs
       }
     }
   },
