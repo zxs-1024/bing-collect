@@ -1,8 +1,6 @@
-# bing-app
+# Bing
 
-:fire: Bing Image Collect
-
-收集必应每日精彩图片
+🏞 Collect wonderful pictures of Bing every day.
 
 ![Bing Image Collect](https://sailor-1256168624.cos.ap-chengdu.myqcloud.com/bing.jpg)
 
@@ -24,29 +22,17 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### React 导入问题
+### react-app-rewired
 
-[MDN | import](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import)
+[Override create-react-app webpack configs without ejecting](https://github.com/timarney/react-app-rewired)
 
-```js
-import * as React from 'react'
-```
-
-```js
-import React, { Component } from 'react'
-```
-
-### 自定义配置
-
-[react-app-rewired](https://github.com/timarney/react-app-rewired)
-
-**install**
+1. Install react-app-rewired
 
 ```bash
 yarn add react-app-rewired -D
 ```
 
-**config-overrides.js**
+2. Create a **config-overrides.js**  file in the root directory
 
 ```js
 /* config-overrides.js */
@@ -60,6 +46,8 @@ module.exports = function override(config, env) {
   return config
 }
 ```
+
+### Set tsconfig
 
 add `tsconfig.paths.json` file
 
@@ -85,10 +73,23 @@ add `tsconfig.paths.json` file
 
 ## Flag
 
-- [x] 历史列表
-- [ ] 测试用例
+- [x] History List
+- [ ] Picture Loading blur
+- [ ] Test
 
 ## Qustion
+
+### React import methods
+
+[MDN | import](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import)
+
+```js
+import * as React from 'react'
+```
+
+```js
+import React, { Component } from 'react'
+```
 
 ### React Hook useEffect has a missing dependency.
 
