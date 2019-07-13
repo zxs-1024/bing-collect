@@ -12,10 +12,8 @@ export const history = createModel({
   reducers: {
     setImageHistory: (state: ContainerState, payload: []) => {
       const { docs = [] } = state
-      docs.push(payload)
-
       return {
-        docs
+        docs: [...docs, payload]
       }
     }
   },

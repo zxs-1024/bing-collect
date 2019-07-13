@@ -15,27 +15,29 @@ const mapDispatch: any = (dispatch: Dispatch) => ({
   getImageDetails: dispatch.details.getImageDetails
 })
 
-type connectedProps = ReturnType<typeof mapState> &
-  ReturnType<typeof mapDispatch>
+type connectedProps = ReturnType<typeof mapState> & ReturnType<typeof mapDispatch>
 type Props = connectedProps
 
 const Details: React.FC<Props> = props => {
+  const { getImageDetails, match: { params: { id } } } = props
+
   useEffect(() => {
-    const { id } = props.match.params
-    props.getImageDetails(id)
-  })
+    getImageDetails(id)
+  }, [id, getImageDetails])
+
+  // format details data
   const { detail = {}, imageUrl = '' } = props.details
+  const miniUrl = imageUrl.replace(/1920x1080|1366x768/, '640x480')
   const { title, date, Continent, Country, City, story: stories = [] } = detail
   const position = [Continent, Country, City]
-
-  const mini = imageUrl.replace(/1920x1080|1366x768/, '640x480')
 
   return (
     <div className={`${classes.mainContentArea} ${classes.singlePost}`}>
       <article>
+        {/* head image use background */}
         <div
           className={`${classes.postHead} blur ${props.isBlur || ''}`}
-          style={{ backgroundImage: `url(${props.loading ? mini : imageUrl})` }}
+          style={{ backgroundImage: `url(${props.loading ? miniUrl : imageUrl})` }}
         />
 
         <img

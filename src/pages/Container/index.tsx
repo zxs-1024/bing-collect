@@ -17,8 +17,7 @@ const mapDispatch: any = (dispatch: Dispatch) => ({
   getContainerList: dispatch.container.getContainerList
 })
 
-type connectedProps = ReturnType<typeof mapState> &
-  ReturnType<typeof mapDispatch>
+type connectedProps = ReturnType<typeof mapState> & ReturnType<typeof mapDispatch>
 type Props = connectedProps
 
 const loader = (
@@ -29,17 +28,14 @@ const loader = (
 
 // useEffect page in component, data in rematch.
 const Container: React.FC<Props> = props => {
+  const { getContainerList } = props
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
 
-
   useEffect(() => {
     setHasMore(true)
-    props.getContainerList({ page }).then(() => setHasMore(false)
-    )
-  }, [page])
-
-  const debounceSetPage = debounce(300, () => setPage(page + 1))
+    getContainerList({ page }).then(() => setHasMore(false))
+  }, [page, getContainerList])
 
   /**
    * use react-infinite-scroller
@@ -47,6 +43,7 @@ const Container: React.FC<Props> = props => {
    * Maximum update depth exceeded
    * https://github.com/CassetteRocks/react-infinite-scroller/issues/163
    */
+  const debounceSetPage = debounce(300, () => setPage(page + 1))
 
   return (
     <div className="container">

@@ -17,8 +17,7 @@ const mapDispatch: any = (dispatch: Dispatch) => ({
   getImageHistory: dispatch.history.getImageHistory
 })
 
-type connectedProps = ReturnType<typeof mapState> &
-  ReturnType<typeof mapDispatch>
+type connectedProps = ReturnType<typeof mapState> & ReturnType<typeof mapDispatch>
 type Props = connectedProps
 
 const loader = (
@@ -28,24 +27,31 @@ const loader = (
 )
 
 const History: React.FC<Props> = props => {
+  const { getImageHistory } = props
   const [year, setYear] = useState(new Date().getFullYear())
   const [hasMore, setHasMore] = useState(true)
 
   useEffect(() => {
-    props.getImageHistory(year)
-  }, [year])
+    setHasMore(true)
+    getImageHistory(year).then(() => setHasMore(false))
+  }, [year, getImageHistory])
 
-  const handleGetImageHistory = () => {
+  /**
+   * use react-infinite-scroller
+   * loadMore={() => setPage(page + 1)}
+   * Maximum update depth exceeded
+   * https://github.com/CassetteRocks/react-infinite-scroller/issues/163
+   */
+  const debounceGetImageHistory = debounce(300, handleGetImageHistory)
+
+  function handleGetImageHistory() {
     const startYear = 2009
     if (year - 1 >= startYear) {
       setYear(year - 1)
-    } else {
-      setHasMore(false)
     }
   }
 
-  const debounceGetImageHistory = debounce(300, handleGetImageHistory)
-
+  // render doc function
   const renderEveryDoc = (images: any) => {
     const first = images[0] || {}
     const year = new Date(first.date || '').getFullYear()

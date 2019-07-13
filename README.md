@@ -85,5 +85,15 @@ add `tsconfig.paths.json` file
 
 ## Flag
 
-- [ ] 历史列表
+- [x] 历史列表
 - [ ] 测试用例
+
+## Qustion
+
+### React Hook useEffect has a missing dependency.
+
+- [How to disable the rule react-hooks/exhaustive-deps](https://github.com/facebook/create-react-app/issues/6880)
+
+### use react-infinite-scroller Maximum update depth exceeded.
+
+- [loadMore function get called infinitely](https://github.com/CassetteRocks/react-infinite-scroller/issues/163)
