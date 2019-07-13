@@ -5,6 +5,7 @@ import MainLayout from './layouts/MainLayout'
 import Container from './pages/Container'
 import Details from './pages/Details'
 import History from './pages/History'
+import HistoryByMonth from './pages/HistoryByMonth'
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Route exact path="/" component={Container} />
         <Route path="/story/:id" component={Details} />
         <Route path="/history" component={History} />
+        <Route path="/month/:month" component={HistoryByMonth} />
       </MainLayout>
     </Router>
   )
