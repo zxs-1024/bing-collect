@@ -1,13 +1,13 @@
 .singlePost {
   padding-top: 0px;
   .postHead {
-    padding: 300px 0px;
+    height: 600px;
     background-size: cover;
     background-position: center;
     color: #ffffff;
     position: relative;
     margin-bottom: 48px;
-    transition: all 0.5s ease;
+    transition: filter 0.5s ease;
     &:before {
       content: '';
       background: rgba(0, 0, 0, 0.05);
@@ -98,8 +98,4 @@
   .mainContentArea {
     overflow: hidden;
   }
-}
-
-.blur {
-  filter: blur(20px);
 }

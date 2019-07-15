@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import dayjs from 'dayjs';
 
@@ -27,23 +27,36 @@ const Details: React.FC<Props> = props => {
 
   // format details data
   const { detail = {}, imageUrl = '' } = props.details
-  const miniUrl = imageUrl.replace(/1920x1080|1366x768/, '640x480')
   const { title, date, Continent, Country, City, story: stories = [] } = detail
   const position = [Continent, Country, City]
 
+  const handleGetImageSrc = () => window.sessionStorage.getItem('minImage')
+
+  const [backgroundImage, setBackgroundImage] = useState(`url(${handleGetImageSrc()})`)
+  const [filterBlur, setFilterBlur] = useState('blur(10px)')
+
+  // image onload, set backgroundImage.
+  const handleImageLoaded = () => {
+    setBackgroundImage(`url(${imageUrl})`)
+    setFilterBlur('')
+  }
+
+  // filter: blur(20px);
+
+  console.log('backgroundImage: ', backgroundImage);
   return (
     <div className={`${classes.mainContentArea} ${classes.singlePost}`}>
       <article>
         {/* head image use background */}
         <div
-          className={`${classes.postHead} blur ${props.isBlur || ''}`}
-          style={{ backgroundImage: `url(${props.loading ? miniUrl : imageUrl})` }}
+          className={`${classes.postHead} blur}`}
+          style={{ backgroundImage, filter: filterBlur }}
         />
 
         <img
           style={{ display: 'none' }}
           src={imageUrl}
-          // onLoad={this.handleImageLoaded}
+          onLoad={handleImageLoaded}
           alt=""
         />
 
@@ -58,7 +71,7 @@ const Details: React.FC<Props> = props => {
                 </div>
                 {
                   stories.map((story: any) => {
-                    return <Story story={story} key={story._id} />
+                    return <Story story={story} key={`details_${story._id}`} />
                   })
                 }
               </div>

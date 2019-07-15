@@ -13,6 +13,7 @@
     transition: all 0.3s ease-in-out;
   }
   .imgHolder {
+    position: relative;
     overflow: hidden;
     border-radius: 5px;
   }
@@ -20,6 +21,12 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+  }
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 .inner {
@@ -105,15 +112,15 @@ time {
   font-size: 14px;
 }
 
-.item.first .imgHolder a:before,
-.item.first .excerpt:before,
-.item.first + .item .imgHolder a:before,
-.item.first + .item .excerpt:before {
+.imageContent.first .imgHolder a:before,
+.imageContent.first .excerpt:before,
+.imageContent.first + .imageContent .imgHolder a:before,
+.imageContent.first + .imageContent .excerpt:before {
   padding-bottom: 66.66%;
 }
 
-.item.first,
-.item.first + .item {
+.imageContent.first,
+.imageContent.first + .imageContent {
   flex: 0 0 50%;
   max-width: 50%;
 }
@@ -127,8 +134,8 @@ time {
 }
 
 @media (max-width: 767px) {
-  .item.first,
-  .item.first + .item {
+  .imageContent.first,
+  .imageContent.first + .imageContent {
     flex: 0 0 100%;
     max-width: 100%;
   }

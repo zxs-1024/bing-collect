@@ -55,7 +55,7 @@ const Container: React.FC<Props> = props => {
         className="row"
       >
         {props.container.docs.map((image: any, i: number) => {
-          return <ImageContent key={image._id} image={image} i={i} />
+          return <ImageContent  key={`container_${image._id}`} image={image} i={i} />
         })}
       </InfiniteScroll>
     </div>
