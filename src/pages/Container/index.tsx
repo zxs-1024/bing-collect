@@ -14,7 +14,8 @@ const mapState = (state: iRootState) => ({
 })
 
 const mapDispatch: any = (dispatch: Dispatch) => ({
-  getContainerList: dispatch.container.getContainerList
+  getContainerList: dispatch.container.getContainerList,
+  handleSetContainerPage: dispatch.container.handleSetContainerPage
 })
 
 type connectedProps = ReturnType<typeof mapState> & ReturnType<typeof mapDispatch>
@@ -26,10 +27,15 @@ const loader = (
   </div>
 )
 
-// useEffect page in component, data in rematch.
+/**
+ * when route back to this page, will call useEffect again. State page init to 0, but rematch data is' not clean.
+ * Two methods:
+ * 1. ✅ save page in rematch data. 
+ * 2. when init useEffect,to clean rematch data, but list date is empty.
+ */
 const Container: React.FC<Props> = props => {
-  const { getContainerList } = props
-  const [page, setPage] = useState(1)
+  const { getContainerList, container } = props
+  const [page, setPage] = useState(container.page)
   const [hasMore, setHasMore] = useState(true)
 
   useEffect(() => {
@@ -43,7 +49,10 @@ const Container: React.FC<Props> = props => {
    * Maximum update depth exceeded
    * https://github.com/CassetteRocks/react-infinite-scroller/issues/163
    */
-  const debounceSetPage = debounce(300, () => setPage(page + 1))
+  const debounceSetPage = debounce(300, () => {
+    setPage(page + 1)
+    props.handleSetContainerPage(page + 1)
+  })
 
   return (
     <div className="container">
@@ -54,7 +63,7 @@ const Container: React.FC<Props> = props => {
         loader={loader}
         className="row"
       >
-        {props.container.docs.map((image: any, i: number) => {
+        {container.docs.map((image: any, i: number) => {
           return <ImageContent  key={`container_${image._id}`} image={image} i={i} />
         })}
       </InfiniteScroll>

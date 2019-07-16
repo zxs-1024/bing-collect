@@ -7,13 +7,21 @@ export type ContainerState = {
 
 export const container = createModel({
   state: {
-    docs: []
+    docs: [],
+    page: 1
   },
   reducers: {
     setContainerList: (state: ContainerState, payload: []) => {
       const { docs } = state
       return {
+        ...state,
         docs: [...docs, ...payload]
+      }
+    },
+    setContainerPage: (state: ContainerState, payload: number) => {
+      return {
+        ...state,
+        page: payload
       }
     }
   },
@@ -22,6 +30,9 @@ export const container = createModel({
       getImageList({ page }).then((data: ContainerState) => {
         dispatch.container.setContainerList(data.docs)
       })
+    },
+    handleSetContainerPage(page) {
+      dispatch.container.setContainerPage(page)
     }
   })
 })
