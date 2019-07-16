@@ -55,13 +55,11 @@ const ImageContent: React.FC<imageContentProps> = props => {
     window.sessionStorage.setItem('minImage', minImage)
   }
 
-  const boxShadow = 'inset 0 0 1px 0 rgba(255, 224, 0, 0.5)'
-
   return (
     <div className={`${classes.imageContent} ${isFirst} col-md-6 col-lg-4`}>
       <article className={`${classes.post}`}>
         <div className={classes.postInnerContent}>
-          <div className={classes.imgHolder} style={{ boxShadow }}>
+          <div className={classes.imgHolder}>
             <div className={classes.loading}>
               <Loading type="Pacman" />
             </div>

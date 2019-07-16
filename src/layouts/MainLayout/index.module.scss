@@ -1,16 +1,13 @@
-.mainLayout{
-
+.mainLayout {
 }
 
-.mainContainer{
+.mainContainer {
   margin-top: 165px;
   min-height: 800px;
 }
 
-// .container{
-//   width: 100%;
-//   padding-right: 15px;
-//   padding-left: 15px;
-//   margin-right: auto;
-//   margin-left: auto;
-// }
+.githubCorner {
+  svg {
+    z-index: 9;
+  }
+}

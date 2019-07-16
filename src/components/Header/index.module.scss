@@ -3,10 +3,10 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
   height: 135px;
+  z-index: 9;
   background: #fff;
-  display: flex !important;
+  display: flex;
   align-items: center;
   border-bottom: 1px solid #ededed;
   transform: translateY(0);
@@ -83,15 +83,6 @@ nav ul {
 .search-trigger svg {
   width: 16px;
   height: 16px;
-}
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-a svg path {
-  fill: #3f3f3f;
-  transition: all 0.3s ease-in-out;
 }
 
 .search-trigger {

@@ -11,17 +11,18 @@ const MainLayout: React.FC = props => {
 
   return (
     <div className={classes.mainLayout}>
-      <GithubCorner
-          href={customHref}
-          bannerColor="#F5BB41"
-          octoColor="#fff"
-          size={80}
-          direction="right"
-          svgStyle={{ mixBlendMode: 'darken' }}
-        />
       <Header />
-      <main className={`${classes.mainContainer}`}>{props.children}</main>
+      <main className={classes.mainContainer}>{props.children}</main>
       <Footer />
+      <GithubCorner
+        className={classes.githubCorner}
+        href={customHref}
+        bannerColor="#F5BB41"
+        octoColor="#fff"
+        size={80}
+        direction="right"
+        svgStyle={{ mixBlendMode: 'darken' }}
+      />
     </div>
   )
 }
