@@ -12,6 +12,6 @@ export async function getImageHistoryByYear(year) {
   return request(`/api/v1/images/history/${year}`)
 }
 
-export async function getImageHistoryByMonth({ page = 1, limit = 8 } = {}) {
-  return request(`/api/v1/images/month/${page}/${limit}`)
+export async function getImageHistoryByMonth({ month, page = 1, limit = 8 } = {}) {
+  return request(`/api/v1/images/month/${month}/${page}/${limit}`)
 }

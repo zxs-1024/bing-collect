@@ -2,12 +2,14 @@ import { createModel } from '@rematch/core'
 import { getImageHistoryByMonth } from '@/services/api'
 
 export type historyByMonthState = {
-  docs: []
+  docs: [],
+  page: 1
 }
 
 export const historyByMonth = createModel({
   state: {
-    docs: []
+    docs: [],
+    page: 1
   },
   reducers: {
     setHistoryByMonthList: (state: historyByMonthState, payload: []) => {
@@ -15,13 +17,23 @@ export const historyByMonth = createModel({
       return {
         docs: [...docs, ...payload]
       }
+    },
+    setHistoryByMonthPage: (state: historyByMonthState, payload: number) => {
+      return {
+        ...state,
+        page: payload
+      }
     }
   },
   effects: dispatch => ({
-    async getHistoryByMonthList({ page }) {
-      getImageHistoryByMonth({ page }).then((data: historyByMonthState) => {
-        dispatch.container.setContainerList(data.docs)
+    async getHistoryByMonth(payload) {
+      return getImageHistoryByMonth(payload).then((data: historyByMonthState) => {
+        dispatch.historyByMonth.setHistoryByMonthList(data.docs)
+        return data
       })
+    },
+    handleSetHistoryByMonthPage(page) {
+      dispatch.historyByMonth.setHistoryByMonthPage(page)
     }
   })
 })

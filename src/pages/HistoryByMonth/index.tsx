@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import InfiniteScroll from 'react-infinite-scroller'
-import { debounce } from 'throttle-debounce'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import ImageContent from '@/components/ImageContent'
 import Loading from '@/components/Loading'
@@ -14,7 +13,8 @@ const mapState = (state: iRootState) => ({
 })
 
 const mapDispatch: any = (dispatch: Dispatch) => ({
-  getHistoryByMonthList: dispatch.historyByMonth.getHistoryByMonthList
+  getHistoryByMonth: dispatch.historyByMonth.getHistoryByMonth,
+  handleSetHistoryByMonthPage: dispatch.historyByMonth.handleSetHistoryByMonthPage
 })
 
 type connectedProps = ReturnType<typeof mapState> & ReturnType<typeof mapDispatch>
@@ -28,36 +28,42 @@ const loader = (
 
 // useEffect page in component, data in rematch.
 const HistoryByMonth: React.FC<Props> = props => {
-  const { getHistoryByMonthList } = props
-  const [page, setPage] = useState(1)
+  const { getHistoryByMonth, historyByMonth, match: { params: { month } } } = props
+  const [page, setPage] = useState(historyByMonth.page)
   const [hasMore, setHasMore] = useState(true)
 
   useEffect(() => {
-    setHasMore(true)
-    getHistoryByMonthList({ page }).then(() => setHasMore(false))
-  }, [page, getHistoryByMonthList])
+    getHistoryByMonth({ month, page }).then((data: any = {}) => {
+      const docs = data.docs || []
+      console.log('getHistoryByMonth, docs', docs)
+      if (!docs.length) setHasMore(false)
+    })
+  }, [page, month, getHistoryByMonth])
 
-  /**
-   * use react-infinite-scroller
-   * loadMore={() => setPage(page + 1)}
-   * Maximum update depth exceeded
-   * https://github.com/CassetteRocks/react-infinite-scroller/issues/163
-   */
-
-  const debounceSetPage = debounce(300, () => setPage(page + 1))
+  const handleSetPage = () => {
+    setPage(page + 1)
+    // need next page
+    props.handleSetHistoryByMonthPage(page + 2)
+  }
 
   return (
-    <div className="container">
+    <div className={`${classes.historyByMonth} container`}>
       <InfiniteScroll
-        pageStart={0}
-        loadMore={debounceSetPage}
+        style={{ overflow: 'infinite' }}
+        dataLength={historyByMonth.docs.length}
+        next={handleSetPage}
         hasMore={hasMore}
         loader={loader}
-        className="row"
-      >
-        {props.container.docs.map((image: any, i: number) => {
-          return <ImageContent key={image._id} image={image} i={i} />
-        })}
+        endMessage={
+          <p style={{ textAlign: 'center' }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }>
+        <div className="row">
+          {props.historyByMonth.docs.map((image: any, i: number) => {
+            return <ImageContent key={image._id} image={image} i={i} />
+          })}
+        </div>
       </InfiniteScroll>
     </div>
   )

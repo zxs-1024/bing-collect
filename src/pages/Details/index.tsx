@@ -25,25 +25,26 @@ const Details: React.FC<Props> = props => {
     getImageDetails(id)
   }, [id, getImageDetails])
 
-  // format details data
+  // Format details data
   const { detail = {}, imageUrl = '' } = props.details
+  let detailsImageSrc = imageUrl
   const { title, date, Continent, Country, City, story: stories = [] } = detail
   const position = [Continent, Country, City]
 
+  // Get minImage from sessionStorage.
   const handleGetImageSrc = () => window.sessionStorage.getItem('minImage')
 
+  // Init state.
   const [backgroundImage, setBackgroundImage] = useState(`url(${handleGetImageSrc()})`)
   const [filterBlur, setFilterBlur] = useState('blur(10px)')
 
-  // image onload, set backgroundImage.
+  // Set backgroundImage when image onload.
   const handleImageLoaded = () => {
-    setBackgroundImage(`url(${imageUrl})`)
+    // Picture onLoad method will calls twice, onLoad id to update image src.
+    if (detail._id === id) setBackgroundImage(`url(${detailsImageSrc})`)
     setFilterBlur('')
   }
 
-  // filter: blur(20px);
-
-  console.log('backgroundImage: ', backgroundImage);
   return (
     <div className={`${classes.mainContentArea} ${classes.singlePost}`}>
       <article>
@@ -52,10 +53,10 @@ const Details: React.FC<Props> = props => {
           className={`${classes.postHead} blur}`}
           style={{ backgroundImage, filter: filterBlur }}
         />
-
+  
         <img
           style={{ display: 'none' }}
-          src={imageUrl}
+          src={detailsImageSrc}
           onLoad={handleImageLoaded}
           alt=""
         />
@@ -70,9 +71,7 @@ const Details: React.FC<Props> = props => {
                   <span className={classes.position}>{position}</span>
                 </div>
                 {
-                  stories.map((story: any) => {
-                    return <Story story={story} key={`details_${story._id}`} />
-                  })
+                  stories.map((story: any) => <Story story={story} key={`story_${story._id}`} />)
                 }
               </div>
             </div>

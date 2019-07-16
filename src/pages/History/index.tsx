@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { debounce } from 'throttle-debounce'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { iRootState, Dispatch } from '@/store'
-import InfiniteScroll from 'react-infinite-scroller'
 import ImageContent from '@/components/ImageContent'
 import Loading from '@/components/Loading'
 import classes from './index.module.scss'
@@ -27,27 +26,20 @@ const loader = (
 )
 
 const History: React.FC<Props> = props => {
-  const { getImageHistory } = props
+  const { getImageHistory, history } = props
   const [year, setYear] = useState(new Date().getFullYear())
   const [hasMore, setHasMore] = useState(true)
 
   useEffect(() => {
-    setHasMore(true)
-    getImageHistory(year).then(() => setHasMore(false))
+    getImageHistory(year)
   }, [year, getImageHistory])
 
-  /**
-   * use react-infinite-scroller
-   * loadMore={() => setPage(page + 1)}
-   * Maximum update depth exceeded
-   * https://github.com/CassetteRocks/react-infinite-scroller/issues/163
-   */
-  const debounceGetImageHistory = debounce(300, handleGetImageHistory)
-
-  function handleGetImageHistory() {
+  const handleGetImageHistory = () => {
     const startYear = 2009
     if (year - 1 >= startYear) {
       setYear(year - 1)
+    } else {
+      setHasMore(false)
     }
   }
 
@@ -73,11 +65,16 @@ const History: React.FC<Props> = props => {
   return (
     <div className={`${classes.history} container`}>
       <InfiniteScroll
-        pageStart={0}
-        loadMore={debounceGetImageHistory}
+        style={{ overflow: 'infinite' }}
+        dataLength={history.docs.length}
+        next={handleGetImageHistory}
         hasMore={hasMore}
         loader={loader}
-      >
+        endMessage={
+          <p style={{ textAlign: 'center' }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }>
         {props.history.docs.map((doc: any) => renderEveryDoc(doc))}
       </InfiniteScroll>
     </div>

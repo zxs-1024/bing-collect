@@ -9,7 +9,7 @@ export const details = createModel({
   state: {},
   reducers: {
     setImageDetails: (state: DetailsState, payload: DetailsState) => {
-      return {...payload }
+      return { ...payload }
     }
   },
   effects: dispatch => ({

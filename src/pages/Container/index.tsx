@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import InfiniteScroll from 'react-infinite-scroller'
-import { debounce } from 'throttle-debounce'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import ImageContent from '@/components/ImageContent'
 import Loading from '@/components/Loading'
@@ -39,33 +38,36 @@ const Container: React.FC<Props> = props => {
   const [hasMore, setHasMore] = useState(true)
 
   useEffect(() => {
-    setHasMore(true)
-    getContainerList({ page }).then(() => setHasMore(false))
+    getContainerList({ page }).then((data: any) => {
+      const docs = data.docs || []
+      if (!docs.length) setHasMore(false)
+    })
   }, [page, getContainerList])
 
-  /**
-   * use react-infinite-scroller
-   * loadMore={() => setPage(page + 1)}
-   * Maximum update depth exceeded
-   * https://github.com/CassetteRocks/react-infinite-scroller/issues/163
-   */
-  const debounceSetPage = debounce(300, () => {
+  const handleSetPage = () => {
     setPage(page + 1)
-    props.handleSetContainerPage(page + 1)
-  })
+    // need next page
+    props.handleSetContainerPage(page + 2)
+  }
 
   return (
     <div className="container">
       <InfiniteScroll
-        pageStart={0}
-        loadMore={debounceSetPage}
+        style={{ overflow: 'infinite' }}
+        dataLength={container.docs.length}
+        next={handleSetPage}
         hasMore={hasMore}
         loader={loader}
-        className="row"
-      >
-        {container.docs.map((image: any, i: number) => {
-          return <ImageContent  key={`container_${image._id}`} image={image} i={i} />
-        })}
+        endMessage={
+          <p style={{ textAlign: 'center' }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }>
+        <div className="row">
+          {container.docs.map((image: any, i: number) => {
+            return <ImageContent key={`container_${i}_${image._id}`} image={image} i={i} />
+          })}
+        </div>
       </InfiniteScroll>
     </div>
   )

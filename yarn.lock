@@ -1171,9 +1171,9 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-infinite-scroller@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npm.taobao.org/@types/react-infinite-scroller/download/@types/react-infinite-scroller-1.2.1.tgz#1cd747ef8f50d3c883e375c0491a906e5436fcb2"
+"@types/react-infinite-scroll-component@^4.2.4":
+  version "4.2.4"
+  resolved "https://registry.npm.taobao.org/@types/react-infinite-scroll-component/download/@types/react-infinite-scroll-component-4.2.4.tgz#97b1404197cb08a139c4f6c02469fa03268bce11"
   dependencies:
     "@types/react" "*"
 
@@ -7998,11 +7998,9 @@ react-github-corner@^2.3.0:
   version "2.3.0"
   resolved "https://registry.npm.taobao.org/react-github-corner/download/react-github-corner-2.3.0.tgz#73ab17324b670c9cd955567b09663d385cfb05ef"
 
-react-infinite-scroller@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.npm.taobao.org/react-infinite-scroller/download/react-infinite-scroller-1.2.4.tgz#f67eaec4940a4ce6417bebdd6e3433bfc38826e9"
-  dependencies:
-    prop-types "^15.5.8"
+react-infinite-scroll-component@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.npm.taobao.org/react-infinite-scroll-component/download/react-infinite-scroll-component-4.5.2.tgz#ebd16195f34a5f191b259ed53d257378b1001c6d"
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
