@@ -52,9 +52,9 @@ h2 {
   cursor: pointer;
   margin: 0;
   padding: 0;
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   opacity: 0;
-  z-index: 10;
+  z-index: 1;
   perspective: 250px;
   li {
     width: 30px;

@@ -26,70 +26,26 @@ header {
   }
 }
 
-.col-9 {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 .inner {
   display: flex;
   justify-content: flex-end;
-}
-
-.navigation {
-  border-right: 1px solid #ededed;
-  margin-right: 10px;
-}
-
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
   align-items: center;
-  height: 50px;
-  li a {
-    font-weight: normal;
-    margin-left: 40px;
+  height: 60px;
+}
+
+.historyEnter {
+  color: #3f3f3f;
+  font-weight: bold;
+  &:link {
     color: #3f3f3f;
-    margin: 10px 20px;
-    font-size: 14px;
-    display: inline-flex;
-    border-bottom: 1px solid transparent;
-    transition: all 0.3s ease-in-out;
-    background-color: transparent;
-    &:hover {
-      border-bottom: 1px solid #ffe000;
-      color: #ffe000 !important;
-    }
-    &:hover,
-    &:link,
-    &:visited,
-    &:active {
-      text-decoration: none;
-    }
   }
-}
-
-.search-trigger svg {
-  width: 16px;
-  height: 16px;
-}
-
-.search-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 10px;
-  min-width: 41px;
-  border-radius: 5px;
+  &:visited {
+    color: #3f3f3f;
+  }
+  &:hover {
+    color: #3f3f3f;
+  }
+  &:active {
+    color: #3f3f3f;
+  }
 }

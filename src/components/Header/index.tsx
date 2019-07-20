@@ -17,22 +17,24 @@ const Logo: React.FC = () => {
 const Header: React.FC = () => {
   return (
     <header>
-        <div className="container">
-          <div className="row">
-            <div className="col-3 ml-auto">
-              <Logo />
-            </div>
-            <div className="col-9">
-              <div className="inner">
-                <Link
-                  className={classes.featuredImage}
-                  to={`/history`}
-                />
-              </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-3">
+            <Logo />
+          </div>
+          <div className="col-9">
+            <div className={classes.inner}>
+              <Link
+                className={classes.historyEnter}
+                to={`/history`}
+              >
+                History
+                </Link>
             </div>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
   )
 }
 
