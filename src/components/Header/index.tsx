@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import logo from '../../assets/logo.png'
@@ -15,6 +15,8 @@ const Logo: React.FC = () => {
 }
 
 const Header: React.FC = () => {
+  const [pathname] = useState('/history')
+
   return (
     <header>
       <div className="container">
@@ -24,12 +26,14 @@ const Header: React.FC = () => {
           </div>
           <div className="col-9">
             <div className={classes.inner}>
-              <Link
-                className={classes.historyEnter}
-                to={`/history`}
-              >
-                History
+              {
+                (pathname !== window.location.pathname) && <Link
+                  className={classes.historyEnter}
+                  to={`/history`}
+                >
+                  History
                 </Link>
+              }
             </div>
           </div>
         </div>

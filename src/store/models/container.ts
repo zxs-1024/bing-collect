@@ -1,8 +1,13 @@
 import { createModel } from '@rematch/core'
 import { getImageList } from '@/services/api'
 
+// const initialState = {
+//   docs: [],
+//   page: 1
+// }
+
 export type ContainerState = {
-  docs: [],
+  docs: any[],
   page: 1
 }
 
@@ -12,7 +17,7 @@ export const container = createModel({
     page: 1
   },
   reducers: {
-    setContainerList: (state: ContainerState, payload: []) => {
+    setContainerList: (state: ContainerState, payload: [] = []) => {
       const { docs } = state
       return {
         ...state,
@@ -29,8 +34,8 @@ export const container = createModel({
   effects: dispatch => ({
     async getContainerList({ page }) {
       return getImageList({ page }).then((data: ContainerState) => {
-        dispatch.container.setContainerList(data.docs)
-        return data
+        dispatch.container.setContainerList(data && data.docs)
+        return data || {}
       })
     },
     handleSetContainerPage(page) {

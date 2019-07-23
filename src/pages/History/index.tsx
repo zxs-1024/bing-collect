@@ -44,9 +44,9 @@ const History: React.FC<Props> = props => {
   }
 
   // render doc function
-  const renderEveryDoc = (images: any) => {
-    const first = images[0] || {}
-    const year = new Date(first.date || '').getFullYear()
+  const renderEveryDoc = (images: [] = []) => {
+    const last = images[images.length - 1] || { date: '' }
+    const year = new Date(last.date).getFullYear()
     return (
       <div key={year}>
         <h2 className={classes.title}>{year}</h2>

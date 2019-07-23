@@ -8,7 +8,7 @@ export type DetailsState = {
 export const details = createModel({
   state: {},
   reducers: {
-    setImageDetails: (state: DetailsState, payload: DetailsState) => {
+    setImageDetails: (state: DetailsState, payload: DetailsState = {}) => {
       return { ...payload }
     }
   },

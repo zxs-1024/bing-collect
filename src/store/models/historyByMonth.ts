@@ -12,7 +12,7 @@ export const historyByMonth = createModel({
     page: 1
   },
   reducers: {
-    setHistoryByMonthList: (state: historyByMonthState, payload: []) => {
+    setHistoryByMonthList: (state: historyByMonthState, payload: [] = []) => {
       const { docs } = state
       return {
         docs: [...docs, ...payload]
@@ -28,7 +28,7 @@ export const historyByMonth = createModel({
   effects: dispatch => ({
     async getHistoryByMonth(payload) {
       return getImageHistoryByMonth(payload).then((data: historyByMonthState) => {
-        dispatch.historyByMonth.setHistoryByMonthList(data.docs)
+        dispatch.historyByMonth.setHistoryByMonthList(data && data.docs)
         return data
       })
     },
