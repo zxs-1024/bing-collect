@@ -10,7 +10,12 @@ header {
   align-items: center;
   border-bottom: 1px solid #ededed;
   transform: translateY(0);
-  transition: all 0.3s ease-in-out;
+  transition: height 0.3s ease-in-out;
+}
+
+header.hasScroll {
+  height: 60px;
+  border-bottom: 1px solid #ededed;
 }
 
 .logo {

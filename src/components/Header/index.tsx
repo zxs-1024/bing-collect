@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import logo from '../../assets/logo.png'
@@ -15,10 +15,23 @@ const Logo: React.FC = () => {
 }
 
 const Header: React.FC = () => {
+  const [scrollTop, setScrollTop] = useState(0)
+
+  const addEventListenerScroll = () => {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || 0
+      setScrollTop(scrollTop)
+    })
+  }
+
+  useEffect(() => {
+    addEventListenerScroll()
+  }, [])
+
   const [pathname] = useState('/history')
 
   return (
-    <header>
+    <header className={scrollTop ? classes.hasScroll : ''}>
       <div className="container">
         <div className="row">
           <div className="col-3">
