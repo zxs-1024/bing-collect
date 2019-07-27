@@ -4,7 +4,7 @@
 
 ![Bing Image Collect](https://sailor-1256168624.cos.ap-chengdu.myqcloud.com/bing.jpg)
 
-### react-app-rewired
+### Use react-app-rewired
 
 [Override create-react-app webpack configs without ejecting](https://github.com/timarney/react-app-rewired)
 
@@ -53,15 +53,18 @@ add `tsconfig.paths.json` file
 }
 ```
 
-## Flag
+## Feature
 
-- [x] History List
-- [ ] Picture Loading blur
-- [ ] Test
+- [x] Download image in list page
+- [x] History and year list page
+- [x] Add infiniteScroll component
+- [x] Picture Loading icon
+- [x] Details add blur when image load
+- [x] Mobile style use @media
 
 ## Qustion
 
-### React import methods
+### React import methods different
 
 [MDN | import](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import)
 
@@ -84,14 +87,6 @@ import React, { Component } from 'react'
 - [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component)
 
 ### Commitizen
-
-- feat：新功能（feature）
-- fix：修补 bug
-- docs：文档（documentation）
-- style： 格式（不影响代码运行的变动）
-- refactor：重构（即不是新增功能，也不是修改 bug 的代码变动）
-- test：增加测试
-- chore：构建过程或辅助工具的变动
 
 #### Install
 
@@ -121,4 +116,3 @@ yarn commit
 ```
 
 - [Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
-
