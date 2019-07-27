@@ -38,7 +38,7 @@ const Header: React.FC = () => {
             <Logo />
           </div>
           <div className="col-9">
-            <div className={classes.inner}>
+            <div className={classes.rowRight}>
               {
                 (pathname !== window.location.pathname) && <Link
                   className={classes.historyEnter}

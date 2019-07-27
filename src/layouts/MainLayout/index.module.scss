@@ -1,6 +1,3 @@
-.mainLayout {
-}
-
 .mainContainer {
   margin-top: 165px;
   min-height: 800px;
@@ -9,5 +6,15 @@
 .githubCorner {
   svg {
     z-index: 9;
+  }
+}
+
+@media (max-width: 575px) {
+  .githubCorner svg {
+    height: 60px;
+    width: 60px;
+  }
+  .mainContainer {
+    margin-top: 80px;
   }
 }

@@ -10,7 +10,7 @@ const MainLayout: React.FC = props => {
   const customHref = 'https://github.com/zhanghao-zhoushan/bing-app'
 
   return (
-    <div className={classes.mainLayout}>
+    <div>
       <Header />
       <main className={classes.mainContainer}>{props.children}</main>
       <Footer />

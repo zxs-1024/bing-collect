@@ -31,7 +31,7 @@ header.hasScroll {
   }
 }
 
-.inner {
+.rowRight {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -52,5 +52,14 @@ header.hasScroll {
   }
   &:active {
     color: #3f3f3f;
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    height: 65px;
+  }
+  .rowRight {
+    padding-right: 40px;
   }
 }
