@@ -1,17 +1,17 @@
-import request from '@/utils/request'
+import axios from '@/utils/axios'
 
 export async function getImageList({ page = 1, limit = 8 } = {}) {
-  return request(`/api/v1/images/${page}/${limit}`)
+  return axios(`/api/v1/images/${page}/${limit}`)
 }
 
 export async function getImageDetails(id) {
-  return request(`/api/v1/images/${id}`)
+  return axios(`/api/v1/images/${id}`)
 }
 
 export async function getImageHistoryByYear(year) {
-  return request(`/api/v1/images/history/${year}`)
+  return axios(`/api/v1/images/history/${year}`)
 }
 
 export async function getImageHistoryByMonth({ month, page = 1, limit = 8 } = {}) {
-  return request(`/api/v1/images/month/${month}/${page}/${limit}`)
+  return axios(`/api/v1/images/month/${month}/${page}/${limit}`)
 }

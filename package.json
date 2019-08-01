@@ -61,5 +61,5 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "proxy": "http://localhost:9527/bing"
+  "proxy": "https://www.zhanghao-zhoushan.cn"
 }
