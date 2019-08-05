@@ -35,7 +35,6 @@ const HistoryByMonth: React.FC<Props> = props => {
   useEffect(() => {
     getHistoryByMonth({ month, page }).then((data: any = {}) => {
       const docs = data.docs || []
-      console.log('getHistoryByMonth, docs', docs)
       if (!docs.length) setHasMore(false)
     })
   }, [page, month, getHistoryByMonth])

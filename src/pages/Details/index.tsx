@@ -41,7 +41,7 @@ const Details: React.FC<Props> = props => {
   // Set backgroundImage when image onload.
   const handleImageLoaded = () => {
     // Picture onLoad method will calls twice, onLoad id to update image src.
-    if (detail._id === id) setBackgroundImage(`url(${detailsImageSrc})`)
+    if (props.details._id === id) setBackgroundImage(`url(${detailsImageSrc})`)
     setFilterBlur('')
   }
 
@@ -53,7 +53,7 @@ const Details: React.FC<Props> = props => {
           className={`${classes.postHead} blur}`}
           style={{ backgroundImage, filter: filterBlur }}
         />
-  
+
         <img
           style={{ display: 'none' }}
           src={detailsImageSrc}
