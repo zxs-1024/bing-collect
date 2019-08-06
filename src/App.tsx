@@ -9,7 +9,7 @@ import HistoryByMonth from './pages/HistoryByMonth'
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Router basename="/bing-collect">
       <MainLayout>
         <Route exact path="/" component={Container} />
         <Route path="/story/:id" component={Details} />
