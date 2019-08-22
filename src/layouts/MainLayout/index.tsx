@@ -3,6 +3,7 @@ import GithubCorner from 'react-github-corner'
 
 import Header from '@components/Header/index'
 import Footer from '@components/Footer/index'
+import BackTop from '@components/BackTop/index'
 
 import classes from './index.module.scss'
 
@@ -14,6 +15,7 @@ const MainLayout: React.FC = props => {
       <Header />
       <main className={classes.mainContainer}>{props.children}</main>
       <Footer />
+      <BackTop />
       <GithubCorner
         className={classes.githubCorner}
         href={customHref}
