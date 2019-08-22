@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter, RouteComponentProps } from 'react-router-dom'
 
 import logo from '../../assets/logo.png'
 import classes from './index.module.scss'
+
+type PathParamsType = {
+  location: any
+}
+type PropsType = RouteComponentProps<PathParamsType>
 
 const Logo: React.FC = () => {
   return (
@@ -14,7 +19,7 @@ const Logo: React.FC = () => {
   )
 }
 
-const Header: React.FC = () => {
+const Header: React.FC<PropsType> = (props) => {
   const [scrollTop, setScrollTop] = useState(0)
 
   const addEventListenerScroll = () => {
@@ -28,8 +33,11 @@ const Header: React.FC = () => {
     addEventListenerScroll()
   }, [])
 
-  const [pathname] = useState('/history')
+  const historyPath = '/history'
+  const isHistoryPath = props.location.pathname === historyPath
+  console.log(props);
 
+  console.log(props.match.path, historyPath);
   return (
     <header className={scrollTop ? classes.hasScroll : ''}>
       <div className="container">
@@ -40,11 +48,8 @@ const Header: React.FC = () => {
           <div className="col-9">
             <div className={classes.rowRight}>
               {
-                (pathname !== window.location.pathname) && <Link
-                  className={classes.historyEnter}
-                  to={`/history`}
-                >
-                  History
+                <Link className={classes.historyEnter} to={isHistoryPath ? '/' : historyPath}>
+                  {isHistoryPath ? 'Home' : 'History'}
                 </Link>
               }
             </div>
@@ -55,4 +60,4 @@ const Header: React.FC = () => {
   )
 }
 
-export default Header
+export default withRouter(Header)
