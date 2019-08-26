@@ -54,7 +54,7 @@ const History: React.FC<Props> = props => {
           {
             images.map((image: any, i: number) => {
               const { dateString = '' } = image
-              return <ImageContent linkPath={`/month/${dateString.slice(0, 6)}`} key={image._id} image={image} i={i} />
+              return <ImageContent linkPath={`/month/${dateString.slice(0, 6)}`} key={`history_${i}_${image._id}`} image={image} i={i} />
             })
           }
         </div>

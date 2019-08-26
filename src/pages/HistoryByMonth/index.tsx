@@ -60,7 +60,7 @@ const HistoryByMonth: React.FC<Props> = props => {
         }>
         <div className="row">
           {props.historyByMonth.docs.map((image: any, i: number) => {
-            return <ImageContent key={image._id} image={image} i={i} />
+            return <ImageContent key={`history_month_${image._id}`} image={image} i={i} />
           })}
         </div>
       </InfiniteScroll>

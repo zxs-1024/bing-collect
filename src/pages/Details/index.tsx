@@ -75,7 +75,7 @@ const Details: React.FC<Props> = props => {
                   <span className={classes.position}>{position}</span>
                 </div>
                 {
-                  stories.map((story: any) => <Story story={story} key={`story_${story._id}`} />)
+                  stories.map((story: any) => <Story story={story} key={`details_${story._id}`} />)
                 }
               </div>
             </div>
