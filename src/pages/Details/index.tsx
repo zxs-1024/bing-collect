@@ -25,6 +25,10 @@ const Details: React.FC<Props> = props => {
     getImageDetails(id)
   }, [id, getImageDetails])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   // Format details data
   const { detail = {}, imageUrl = '' } = props.details
   let detailsImageSrc = imageUrl

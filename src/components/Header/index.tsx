@@ -35,9 +35,7 @@ const Header: React.FC<PropsType> = (props) => {
 
   const historyPath = '/history'
   const isHistoryPath = props.location.pathname === historyPath
-  console.log(props);
 
-  console.log(props.match.path, historyPath);
   return (
     <header className={scrollTop ? classes.hasScroll : ''}>
       <div className="container">

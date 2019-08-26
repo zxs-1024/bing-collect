@@ -1,11 +1,6 @@
 import { createModel } from '@rematch/core'
 import { getImageList } from '@/services/api'
 
-// const initialState = {
-//   docs: [],
-//   page: 1
-// }
-
 export type ContainerState = {
   docs: any[],
   page: 1
