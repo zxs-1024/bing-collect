@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroll-component'
-
+import { InfiniteLoader, List } from 'react-virtualized'
 import ImageContent from '@/components/ImageContent'
 import Loading from '@/components/Loading'
 
@@ -36,11 +36,14 @@ const Container: React.FC<Props> = props => {
   const { getContainerList, container } = props
   const [page, setPage] = useState(container.page)
   const [hasMore, setHasMore] = useState(true)
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
+    setLoading(true)
     getContainerList({ page }).then((data: any) => {
       const docs = data.docs || []
-      if (!docs.length) setHasMore(false)
+      setLoading(false)
+      if (!docs.size) setHasMore(false)
     })
   }, [page, getContainerList])
 
@@ -52,7 +55,13 @@ const Container: React.FC<Props> = props => {
 
   return (
     <div className="container">
-      <InfiniteScroll
+      <VirtualizeComponent
+        hasNextPage={hasMore}
+        isNextPageLoading={isLoading}
+        list={container.docs}
+        loadNextPage={handleSetPage} />
+
+      {/* <InfiniteScroll
         style={{ overflow: 'infinite' }}
         dataLength={container.docs.length}
         next={handleSetPage}
@@ -68,7 +77,7 @@ const Container: React.FC<Props> = props => {
             return <ImageContent key={`container_${i}_${image._id}`} image={image} i={i} />
           })}
         </div>
-      </InfiniteScroll>
+      </InfiniteScroll> */}
     </div>
   )
 }
@@ -77,3 +86,73 @@ export default connect(
   mapState,
   mapDispatch
 )(Container)
+
+function VirtualizeComponent({
+  /** Are there more items to load? (This information comes from the most recent API request.) */
+  hasNextPage,
+  /** Are we currently loading a page of items? (This may be an in-flight flag in your Redux store for example.) */
+  isNextPageLoading,
+  /** List of items loaded so far */
+  list,
+  /** Callback function (eg. Redux action-creator) responsible for loading the next page of items */
+  loadNextPage
+}: any) {
+
+  const otherProps = {
+    height: 800,
+    width: 1000,
+    rowHeight: 400,
+    rowCount: list.size
+  }
+
+  // If there are more items to be loaded then add an extra row to hold a loading indicator.
+  const rowCount = hasNextPage
+    ? list.size + 1
+    : list.size
+
+  // Only load 1 page of items at a time.
+  // Pass an empty callback to InfiniteLoader in case it asks us to load more than once.
+  const loadMoreRows = isNextPageLoading
+    ? () => { }
+    : loadNextPage
+
+  // Every row is loaded except for our loading indicator row.
+  const isRowLoaded = ({ index }: any) => !hasNextPage || index < list.size
+
+  // Render a list item or a loading indicator.
+  const rowRenderer = ({ index, key, style }: any) => {
+    let content
+
+    if (!isRowLoaded({ index })) {
+      content = 'Loading...'
+    } else {
+      content = <ImageContent image={list.getIn([index])} i={index} />
+    }
+
+    return (
+      <div
+        key={key}
+        style={style}
+      >
+        {content}
+      </div>
+    )
+  }
+
+  return (
+    <InfiniteLoader
+      isRowLoaded={isRowLoaded}
+      loadMoreRows={loadMoreRows}
+      rowCount={rowCount}
+    >
+      {({ onRowsRendered, registerChild }) => (
+        <List
+          ref={registerChild}
+          onRowsRendered={onRowsRendered}
+          rowRenderer={rowRenderer}
+          {...otherProps}
+        />
+      )}
+    </InfiniteLoader>
+  )
+}

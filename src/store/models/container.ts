@@ -1,4 +1,5 @@
 import { createModel } from '@rematch/core'
+import { List } from 'immutable'
 import { getImageList } from '@/services/api'
 
 export type ContainerState = {
@@ -8,7 +9,7 @@ export type ContainerState = {
 
 export const container = createModel({
   state: {
-    docs: [],
+    docs: List([]),
     page: 1
   },
   reducers: {
@@ -16,7 +17,7 @@ export const container = createModel({
       const { docs } = state
       return {
         ...state,
-        docs: [...docs, ...payload]
+        docs: docs.concat(payload)
       }
     },
     setContainerPage: (state: ContainerState, payload: number) => {
